@@ -1,26 +1,429 @@
 @import "tailwindcss";
+@source "../";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+@theme {
+  /* --- Fonts --- */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+
+  /* ========================================================
+       FLUID TYPOGRAPHY SCALE
+       Modern responsive typography using clamp()
+       ======================================================== */
+
+  --text-xs: clamp(0.75rem, 0.7vw, 0.85rem);
+  --text-sm: clamp(0.875rem, 0.85vw, 1rem);
+  --text-base: clamp(1rem, 0.95vw, 1.125rem);
+
+  --text-lg: clamp(1.125rem, 1.2vw, 1.35rem);
+  --text-xl: clamp(1.35rem, 1.8vw, 1.8rem);
+
+  --text-2xl: clamp(1.8rem, 3vw, 3rem);
+  --text-3xl: clamp(2.5rem, 5vw, 5rem);
+
+  --hero-title: clamp(4rem, 8vw, 8rem);
+
+  /* --- Brand Colors --- */
+  --color-ink: #0a1a0f;
+  --color-forest: #0f2318;
+  --color-green: #1b3d28;
+  --color-sage: #3d6b4f;
+  --color-sage-light: #6a9c7e;
+  --color-mint: #c8dfd2;
+
+  --color-cream: #f8f1e4;
+  --color-warm: #fefbf5;
+
+  --color-gold: #c9a55a;
+  --color-gold-light: #e8d49a;
+  --color-gold-pale: #f5edda;
+
+  --color-muted: #6b6352;
+  --color-border: #e8e0d0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ============================================================
+   BASE LAYER
+   ============================================================ */
+@layer base {
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-warm);
+    color: var(--color-ink);
+
+    font-size: var(--text-base);
+    line-height: 1.7;
+    font-weight: 400;
+
+    font-optical-sizing: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: var(--text-3xl);
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+  }
+
+  h3 {
+    font-size: var(--text-xl);
+  }
+
+  h4 {
+    font-size: var(--text-lg);
+  }
+
+  p {
+    color: var(--color-muted);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: var(--font-sans);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================
+   COMPONENTS LAYER
+   ============================================================ */
+@layer components {
+
+  /* ========================================================
+       CONTAINER
+       Wider + more fluid for modern desktops
+       ======================================================== */
+  .container {
+    width: 100%;
+    max-width: min(92vw, 1440px);
+
+    margin-inline: auto;
+
+    padding-inline: clamp(1rem, 3vw, 3rem);
+  }
+
+  /* ========================================================
+       EYEBROW LABEL
+       ======================================================== */
+  .eyebrow {
+    display: inline-block;
+
+    font-family: var(--font-sans);
+
+    font-size: clamp(0.72rem, 0.8vw, 0.82rem);
+    font-weight: 600;
+
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+
+    color: var(--color-gold);
+  }
+
+  /* ========================================================
+       HERO TYPOGRAPHY
+       ======================================================== */
+  .heading-hero {
+    font-family: var(--font-display);
+
+    font-size: var(--hero-title);
+
+    line-height: 0.92;
+    letter-spacing: -0.05em;
+
+    color: white;
+  }
+
+  .heading-xl {
+    font-size: var(--text-3xl);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .heading-lg {
+    font-size: var(--text-2xl);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  .heading-md {
+    font-size: var(--text-xl);
+    line-height: 1.15;
+  }
+
+  /* ========================================================
+       BODY TEXT HELPERS
+       ======================================================== */
+  .text-body {
+    font-size: var(--text-base);
+    line-height: 1.8;
+    color: var(--color-muted);
+  }
+
+  .text-large {
+    font-size: var(--text-lg);
+    line-height: 1.8;
+  }
+
+  /* ========================================================
+       PROSE / BLOG CONTENT
+       ======================================================== */
+  .prose {
+    font-family: var(--font-serif);
+
+    font-size: clamp(1.05rem, 1.15vw, 1.25rem);
+
+    line-height: 1.9;
+
+    color: var(--color-muted);
+  }
+
+  .prose p+p {
+    margin-top: 1.4em;
+  }
+
+  .prose h2 {
+    font-size: clamp(2rem, 3vw, 3.5rem);
+
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+
+    color: var(--color-ink);
+
+    line-height: 1.1;
+  }
+
+  .prose h3 {
+    font-size: clamp(1.4rem, 2vw, 2rem);
+
+    margin-top: 1.6em;
+    margin-bottom: 0.5em;
+
+    color: var(--color-ink);
+
+    line-height: 1.2;
+  }
+
+  /* ========================================================
+       SECTION SPACING
+       ======================================================== */
+  .section {
+    padding-block: clamp(5rem, 10vw, 9rem);
+  }
+
+  .section-sm {
+    padding-block: clamp(3rem, 6vw, 5rem);
+  }
+
+  /* ========================================================
+       BUTTON STYLES
+       ======================================================== */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-inline: 1.5rem;
+    height: 3rem;
+
+    border-radius: 999px;
+
+    background-color: var(--color-gold);
+    color: var(--color-ink);
+
+    font-size: var(--text-sm);
+    font-weight: 600;
+
+    transition:
+      background-color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-gold-light);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-inline: 1.5rem;
+    height: 3rem;
+
+    border-radius: 999px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    color: white;
+
+    backdrop-filter: blur(8px);
+
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+.animate-zoom-in {
+  animation: zoomIn 8s ease-out forwards;
+}
+
+/* ============================================================
+   LARGE DESKTOP OPTIMIZATION
+   Helps high-density 1080p / 1440p displays
+   ============================================================ */
+@media (min-width: 1600px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+/* ============================================================
+   SMALL LAPTOP OPTIMIZATION
+   Better scaling for 1366x768 laptops
+   ============================================================ */
+@media (max-width: 1400px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+@media (max-width: 1024px) {
+
+  .heading-hero {
+    line-height: 0.95;
+  }
+
+  .section {
+    padding-block: 5rem;
+  }
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 768px) {
+
+  body {
+    line-height: 1.65;
+  }
+
+  .container {
+    padding-inline: 1rem;
+  }
+
+  .section {
+    padding-block: 4rem;
+  }
+
+  .section-sm {
+    padding-block: 2.5rem;
+  }
+
+  .heading-hero {
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
 }
