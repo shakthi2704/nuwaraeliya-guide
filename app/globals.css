@@ -129,3 +129,13 @@
     transform: scale(1.06);
   }
 }
+
+/* ============================================================
+   CUSTOM ANIMATIONS
+   Registers keyframes as Tailwind animate-* utilities.
+   ============================================================ */
+@theme {
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-fade-up: fadeUp 0.7s ease forwards;
+  --animate-hero-zoom: heroZoom 10s ease-out forwards;
+}
