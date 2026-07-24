@@ -41,7 +41,7 @@ const TRIP_IDEAS: TripIdea[] = [
         description:
             "For when you can only get away for two days but still want it to feel like a proper trip, not a rushed detour.",
         highlights: ["Horton Plains & World's End", "Gregory Lake at First Light"],
-        image: "https://images.unsplash.com/photo-1748753778598-2e5c4244e90e?w=1200&q=80",
+        image: "https://images.unsplash.com/photo-1596178060810-72660ee8d3aa?w=800&q=80",
         alt: "Early morning light over the Horton Plains escarpment",
     },
 ];
@@ -100,205 +100,109 @@ export default function PopularTripIdeas() {
 
                 </div>
 
-                {/* ── Asymmetric split: featured card + stacked compact cards ── */}
-                <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6 items-stretch">
+                {/* ── Mosaic: two unequal overlay cards, then one full-width card below ── */}
+                <div className="flex flex-col gap-6">
 
-                    {/* Featured card */}
-                    <Link
-                        href={`/trip-ideas/${featured.slug}`}
-                        className="group flex flex-col overflow-hidden no-underline"
-                        style={{
-                            background: "var(--color-surface)",
-                            border: "1px solid rgba(14,28,18,0.09)",
-                            borderRadius: "10px",
-                            boxShadow: "0 2px 10px rgba(14,28,18,0.06)",
-                            transition: "transform 0.28s ease, box-shadow 0.28s ease",
-                        }}
-                        onMouseEnter={e => {
-                            const el = e.currentTarget as HTMLElement;
-                            el.style.transform = "translateY(-4px)";
-                            el.style.boxShadow = "0 24px 60px rgba(14,28,18,0.12)";
-                        }}
-                        onMouseLeave={e => {
-                            const el = e.currentTarget as HTMLElement;
-                            el.style.transform = "translateY(0)";
-                            el.style.boxShadow = "0 2px 10px rgba(14,28,18,0.06)";
-                        }}
-                    >
-                        <div
-                            className="relative overflow-hidden flex-shrink-0"
-                            style={{ aspectRatio: "16/9", borderRadius: "10px 10px 0 0" }}
-                        >
-                            <img
-                                src={featured.image}
-                                alt={featured.alt}
-                                loading="eager"
-                                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-                            />
-                            <div
-                                className="absolute inset-0"
-                                style={{ background: "linear-gradient(to top, rgba(10,31,18,0.72) 0%, transparent 55%)" }}
-                            />
-                            <span
-                                className="absolute bottom-3 left-4 uppercase tracking-[0.18em]"
-                                style={{
-                                    fontFamily: "var(--font-sans)",
-                                    fontSize: "0.58rem",
-                                    fontWeight: 700,
-                                    color: "#0a1f12",
-                                    background: "var(--color-gold-mid)",
-                                    padding: "0.28rem 0.65rem",
-                                    borderRadius: "4px",
-                                }}
-                            >
-                                {featured.duration}
-                            </span>
-                        </div>
-
-                        <div className="flex flex-col flex-1 px-6 pt-6 pb-6 gap-4">
-                            <h3
-                                style={{
-                                    fontFamily: "var(--font-display)",
-                                    fontSize: "var(--text-xl)",
-                                    fontWeight: 700,
-                                    letterSpacing: "-0.02em",
-                                    lineHeight: 1.15,
-                                    color: "var(--color-ink)",
-                                }}
-                            >
-                                {featured.title}
-                            </h3>
-
-                            <p
-                                className="leading-[1.75]"
-                                style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--color-muted)" }}
-                            >
-                                {featured.description}
-                            </p>
-
-                            <ul className="flex flex-wrap gap-2 list-none">
-                                {featured.highlights.map(h => (
-                                    <li
-                                        key={h}
-                                        className="tracking-[0.04em]"
-                                        style={{
-                                            fontFamily: "var(--font-sans)",
-                                            fontSize: "0.66rem",
-                                            fontWeight: 500,
-                                            color: "var(--color-sage)",
-                                            background: "var(--color-gold-pale)",
-                                            padding: "0.35rem 0.7rem",
-                                            borderRadius: "4px",
-                                        }}
-                                    >
-                                        {h}
-                                    </li>
-                                ))}
-                            </ul>
-
-                            <div className="flex items-center gap-2 uppercase tracking-[0.18em] mt-auto pt-2"
-                                style={{ fontFamily: "var(--font-sans)", fontSize: "0.66rem", fontWeight: 700, color: "var(--color-gold)" }}
-                            >
-                                View Itinerary
-                                <span style={{ fontSize: "0.9rem", lineHeight: 1 }}>&#8594;</span>
-                            </div>
-                        </div>
-                    </Link>
-
-                    {/* Compact stacked cards */}
-                    <div className="flex flex-col gap-6">
-                        {rest.map(idea => (
-                            <Link
-                                key={idea.slug}
-                                href={`/trip-ideas/${idea.slug}`}
-                                className="group flex flex-1 overflow-hidden no-underline"
-                                style={{
-                                    background: "var(--color-surface)",
-                                    border: "1px solid rgba(14,28,18,0.09)",
-                                    borderRadius: "10px",
-                                    boxShadow: "0 2px 10px rgba(14,28,18,0.06)",
-                                    transition: "transform 0.28s ease, box-shadow 0.28s ease",
-                                }}
-                                onMouseEnter={e => {
-                                    const el = e.currentTarget as HTMLElement;
-                                    el.style.transform = "translateY(-4px)";
-                                    el.style.boxShadow = "0 24px 60px rgba(14,28,18,0.12)";
-                                }}
-                                onMouseLeave={e => {
-                                    const el = e.currentTarget as HTMLElement;
-                                    el.style.transform = "translateY(0)";
-                                    el.style.boxShadow = "0 2px 10px rgba(14,28,18,0.06)";
-                                }}
-                            >
-                                <div
-                                    className="relative overflow-hidden flex-shrink-0"
-                                    style={{ width: "38%", borderRadius: "10px 0 0 10px" }}
-                                >
-                                    <img
-                                        src={idea.image}
-                                        alt={idea.alt}
-                                        loading="lazy"
-                                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-                                    />
-                                </div>
-
-                                <div className="flex flex-col flex-1 px-5 py-4 gap-2 min-w-0">
-                                    <span
-                                        className="uppercase tracking-[0.16em]"
-                                        style={{ fontFamily: "var(--font-sans)", fontSize: "0.6rem", fontWeight: 700, color: "var(--color-gold)" }}
-                                    >
-                                        {idea.duration}
-                                    </span>
-
-                                    <h3
-                                        style={{
-                                            fontFamily: "var(--font-display)",
-                                            fontSize: "var(--text-lg)",
-                                            fontWeight: 700,
-                                            letterSpacing: "-0.02em",
-                                            lineHeight: 1.2,
-                                            color: "var(--color-ink)",
-                                        }}
-                                    >
-                                        {idea.title}
-                                    </h3>
-
-                                    <p
-                                        className="leading-[1.6] line-clamp-2"
-                                        style={{ fontFamily: "var(--font-sans)", fontSize: "0.78rem", color: "var(--color-muted)" }}
-                                    >
-                                        {idea.description}
-                                    </p>
-
-                                    <span
-                                        className="self-start tracking-[0.04em]"
-                                        style={{
-                                            fontFamily: "var(--font-sans)",
-                                            fontSize: "0.62rem",
-                                            fontWeight: 500,
-                                            color: "var(--color-sage)",
-                                            background: "var(--color-gold-pale)",
-                                            padding: "0.3rem 0.6rem",
-                                            borderRadius: "4px",
-                                        }}
-                                    >
-                                        {idea.highlights[0]}
-                                    </span>
-
-                                    <div className="flex items-center gap-1.5 uppercase tracking-[0.16em] mt-auto pt-1"
-                                        style={{ fontFamily: "var(--font-sans)", fontSize: "0.6rem", fontWeight: 700, color: "var(--color-sage)" }}
-                                    >
-                                        View Itinerary
-                                        <span style={{ fontSize: "0.8rem", lineHeight: 1 }}>&#8594;</span>
-                                    </div>
-                                </div>
-                            </Link>
+                    <div className="grid grid-cols-1 lg:grid-cols-[1.7fr_1fr] gap-6">
+                        {rest.map((idea, i) => (
+                            <TripCard key={idea.slug} idea={idea} height={i === 0 ? "clamp(260px,28vw,340px)" : "clamp(260px,28vw,340px)"} />
                         ))}
                     </div>
+
+                    <TripCard idea={featured} height="clamp(320px,32vw,420px)" showHighlights />
 
                 </div>
 
             </div>
         </section>
+    );
+}
+
+function TripCard({
+    idea,
+    height,
+    showHighlights,
+}: {
+    idea: TripIdea;
+    height: string;
+    showHighlights?: boolean;
+}) {
+    return (
+        <Link
+            href={`/trip-ideas/${idea.slug}`}
+            className="group relative flex items-end overflow-hidden no-underline"
+            style={{ height, borderRadius: "10px" }}
+        >
+            <img
+                src={idea.image}
+                alt={idea.alt}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+            />
+            <div
+                className="absolute inset-0"
+                style={{
+                    background:
+                        "linear-gradient(to top, rgba(10,20,14,0.82) 0%, rgba(10,20,14,0.35) 45%, rgba(10,20,14,0.05) 70%)",
+                }}
+            />
+
+            <div className="relative z-[1] flex flex-col gap-2 px-6 py-6 md:px-8 md:py-7">
+                <span
+                    className="uppercase tracking-[0.18em] font-semibold"
+                    style={{ fontFamily: "var(--font-sans)", fontSize: "0.62rem", color: "var(--color-gold-mid)" }}
+                >
+                    {idea.duration}
+                </span>
+
+                <h3
+                    style={{
+                        fontFamily: "var(--font-display)",
+                        fontSize: showHighlights ? "var(--text-2xl)" : "var(--text-xl)",
+                        fontWeight: 700,
+                        letterSpacing: "-0.02em",
+                        lineHeight: 1.1,
+                        color: "#ffffff",
+                    }}
+                >
+                    {idea.title}
+                </h3>
+
+                <p
+                    className="leading-[1.6]"
+                    style={{
+                        fontFamily: "var(--font-sans)",
+                        fontSize: "var(--text-sm)",
+                        color: "rgba(255,255,255,0.78)",
+                        maxWidth: "48ch",
+                    }}
+                >
+                    {idea.description}
+                </p>
+
+                {showHighlights && (
+                    <span
+                        className="tracking-[0.04em]"
+                        style={{ fontFamily: "var(--font-sans)", fontSize: "0.72rem", color: "rgba(255,255,255,0.55)" }}
+                    >
+                        {idea.highlights.join(" · ")}
+                    </span>
+                )}
+
+                <span
+                    className="uppercase tracking-[0.16em] font-semibold mt-2"
+                    style={{
+                        fontFamily: "var(--font-sans)",
+                        fontSize: "0.68rem",
+                        color: "#ffffff",
+                        borderBottom: "1px solid rgba(255,255,255,0.5)",
+                        paddingBottom: "0.2rem",
+                        width: "fit-content",
+                    }}
+                >
+                    View Itinerary &#8594;
+                </span>
+            </div>
+        </Link>
     );
 }
