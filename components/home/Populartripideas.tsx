@@ -31,8 +31,8 @@ const TRIP_IDEAS: TripIdea[] = [
         description:
             "A short, quiet trip built around slow mornings and one good view. Less itinerary, more mood.",
         highlights: ["Gregory Lake at First Light", "Pedro Tea Estate"],
-        image: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=80",
-        alt: "Couple walking beside a still hill-country lake",
+        image: "https://images.unsplash.com/photo-1741217529666-10911b02fb1b?w=800&q=80",
+        alt: "Couple silhouetted together at sunset",
     },
     {
         slug: "the-long-weekend",
@@ -41,8 +41,8 @@ const TRIP_IDEAS: TripIdea[] = [
         description:
             "For when you can only get away for two days but still want it to feel like a proper trip, not a rushed detour.",
         highlights: ["Horton Plains & World's End", "Gregory Lake at First Light"],
-        image: "https://images.unsplash.com/photo-1596178060810-72660ee8d3aa?w=800&q=80",
-        alt: "Early morning light over the Horton Plains escarpment",
+        image: "https://images.unsplash.com/photo-1680237659901-29f8d39ff290?w=800&q=80",
+        alt: "Aerial view of rolling green hills under a cloudy sky",
     },
 ];
 
@@ -57,9 +57,7 @@ export default function PopularTripIdeas() {
         >
             <div className="w-full max-w-[1380px] mx-auto px-[clamp(1.25rem,4vw,3.5rem)]">
 
-                {/* ── Header — left-aligned, breaks from the centered rhythm above ── */}
                 <div className="flex flex-col items-start text-left mb-16 max-w-[560px]">
-
                     <span
                         className="uppercase tracking-[0.22em] font-semibold text-[var(--color-gold)] mb-4"
                         style={{ fontFamily: "var(--font-sans)", fontSize: "0.62rem" }}
@@ -97,20 +95,16 @@ export default function PopularTripIdeas() {
                         Whole itineraries, not a list of things to sort through yourself.
                         Pick the one closest to your trip and adjust from there.
                     </p>
-
                 </div>
 
-                {/* ── Mosaic: two unequal overlay cards, then one full-width card below ── */}
                 <div className="flex flex-col gap-6">
-
                     <div className="grid grid-cols-1 lg:grid-cols-[1.7fr_1fr] gap-6">
-                        {rest.map((idea, i) => (
-                            <TripCard key={idea.slug} idea={idea} height={i === 0 ? "clamp(260px,28vw,340px)" : "clamp(260px,28vw,340px)"} />
+                        {rest.map(idea => (
+                            <TripCard key={idea.slug} idea={idea} height="clamp(260px,28vw,340px)" />
                         ))}
                     </div>
 
                     <TripCard idea={featured} height="clamp(320px,32vw,420px)" showHighlights />
-
                 </div>
 
             </div>

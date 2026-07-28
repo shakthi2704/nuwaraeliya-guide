@@ -20,8 +20,8 @@ const GUIDES: Guide[] = [
         excerpt:
             "Train, private car, or the public bus everyone warns you about — what each one actually costs, how long it really takes, and which one we'd pick.",
         readTime: "6 min read",
-        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80",
-        alt: "Blue train winding through Sri Lankan hill country",
+        image: "https://images.unsplash.com/photo-1771044682184-1b60ace4a7fa?w=900&q=80",
+        alt: "Train crossing a lush green viaduct bridge in Sri Lanka",
     },
     {
         slug: "where-to-stay",
@@ -30,8 +30,8 @@ const GUIDES: Guide[] = [
         excerpt:
             "Colonial bungalows, working tea estates, and modern guesthouses — matched to who you're traveling with, not just star ratings.",
         readTime: "8 min read",
-        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80",
-        alt: "Colonial-style hill country bungalow surrounded by greenery",
+        image: "https://images.unsplash.com/photo-1758390286386-87c9d78cf9be?w=900&q=80",
+        alt: "Lush green tea plantation on a hillside",
     },
     {
         slug: "what-to-pack",
@@ -40,8 +40,8 @@ const GUIDES: Guide[] = [
         excerpt:
             "It's Sri Lanka, but it's 16°C and misty most mornings. What you genuinely need, and what every packing list gets wrong about it.",
         readTime: "4 min read",
-        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80",
-        alt: "Warm clothing laid out for a cool-climate trip",
+        image: "https://images.unsplash.com/photo-1641642231157-0849081598a2?w=900&q=80",
+        alt: "A stack of warm sweaters folded on a chair",
     },
 ];
 
