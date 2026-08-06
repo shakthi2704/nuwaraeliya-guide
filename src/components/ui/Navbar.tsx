@@ -1,19 +1,21 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const NAV_LINKS = [
-    { label: "Experiences", href: "/experiences" },
-    { label: "Trip Ideas", href: "/trip-ideas" },
-    { label: "Travel Guides", href: "/guides" },
-    { label: "About", href: "/about" },
-];
+    { key: "experiences", href: "/experiences" },
+    { key: "tripIdeas", href: "/trip-ideas" },
+    { key: "guides", href: "/guides" },
+    { key: "about", href: "/about" },
+] as const;
 
 const TRANSPARENT_PAGES = ["/"];
 
 export default function Navbar() {
+    const t = useTranslations("navigation");
     const pathname = usePathname();
     const [menuOpen, setMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
@@ -71,22 +73,22 @@ export default function Navbar() {
                             className="leading-none tracking-[-0.02em] text-white font-bold"
                             style={{ fontFamily: "var(--font-display)", fontSize: "1.05rem" }}
                         >
-                            Nuwara Eliya
+                            {t("logoTitle")}
                         </span>
                         <span
                             className="leading-none tracking-[0.3em] uppercase text-[var(--color-gold-mid)]"
                             style={{ fontFamily: "var(--font-sans)", fontSize: "0.48rem", fontWeight: 500 }}
                         >
-                            Guide
+                            {t("logoSubtitle")}
                         </span>
                     </Link>
 
                     {/* Desktop nav — centered absolutely */}
                     <nav
                         className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-10"
-                        aria-label="Primary navigation"
+                        aria-label={t("primaryNav")}
                     >
-                        {NAV_LINKS.map(({ label, href }) => {
+                        {NAV_LINKS.map(({ key, href }) => {
                             const active = pathname === href || pathname.startsWith(href + "/");
                             return (
                                 <Link
@@ -102,21 +104,22 @@ export default function Navbar() {
                                     ].join(" ")}
                                     style={{ fontFamily: "var(--font-sans)", fontSize: "0.68rem", fontWeight: 500 }}
                                 >
-                                    {label}
+                                    {t(key)}
                                 </Link>
                             );
                         })}
                     </nav>
 
                     {/* Desktop CTA */}
-                    <div className="hidden md:block ml-auto flex-shrink-0 z-[2]">
+                    <div className="hidden md:flex items-center gap-6 ml-auto flex-shrink-0 z-[2]">
+                        <LanguageSwitcher />
                         <Link
                             href="/planner"
                             className="inline-flex items-center justify-center tracking-[0.16em] uppercase whitespace-nowrap no-underline transition-colors duration-200
                                        bg-[var(--color-gold-mid)] text-[var(--color-forest)] hover:bg-[var(--color-gold)]"
                             style={{ fontFamily: "var(--font-sans)", fontSize: "0.65rem", fontWeight: 600, padding: "0.55rem 1.35rem", borderRadius: "1px" }}
                         >
-                            Plan My Trip
+                            {t("planTrip")}
                         </Link>
                     </div>
 
@@ -124,7 +127,7 @@ export default function Navbar() {
                     <button
                         className="flex md:hidden flex-col justify-center items-center gap-[5px] w-9 h-9 ml-auto z-[2]"
                         onClick={() => setMenuOpen(prev => !prev)}
-                        aria-label={menuOpen ? "Close menu" : "Open menu"}
+                        aria-label={menuOpen ? t("closeMenu") : t("openMenu")}
                         aria-expanded={menuOpen}
                     >
                         <span className={`block w-[22px] h-[1.5px] bg-white/82 rounded-[1px] transition-transform duration-240 origin-center ${menuOpen ? "translate-y-[6.5px] rotate-45" : ""}`} />
@@ -147,7 +150,7 @@ export default function Navbar() {
                 aria-hidden={!menuOpen}
             >
                 <nav className="flex flex-col">
-                    {NAV_LINKS.map(({ label, href }) => {
+                    {NAV_LINKS.map(({ key, href }) => {
                         const active = pathname === href || pathname.startsWith(href + "/");
                         return (
                             <Link
@@ -159,11 +162,14 @@ export default function Navbar() {
                                 ].join(" ")}
                                 style={{ fontFamily: "var(--font-sans)", fontSize: "0.78rem", fontWeight: 500 }}
                             >
-                                {label}
+                                {t(key)}
                             </Link>
                         );
                     })}
                 </nav>
+                <div className="pt-5 pb-1">
+                    <LanguageSwitcher />
+                </div>
                 <div className="pt-6">
                     <Link
                         href="/planner"
@@ -171,7 +177,7 @@ export default function Navbar() {
                                    bg-[var(--color-gold-mid)] text-[var(--color-forest)] hover:bg-[var(--color-gold)]"
                         style={{ fontFamily: "var(--font-sans)", fontSize: "0.65rem", fontWeight: 600, padding: "0.85rem", borderRadius: "1px" }}
                     >
-                        Plan My Trip
+                        {t("planTrip")}
                     </Link>
                 </div>
             </div>

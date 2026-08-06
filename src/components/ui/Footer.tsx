@@ -1,34 +1,28 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { MessageCircle } from "lucide-react";
 
 const EXPLORE = [
-    { label: "Experiences", href: "/experiences" },
-    { label: "Trip Ideas", href: "/trip-ideas" },
-    { label: "Travel Guides", href: "/guides" },
-    { label: "Plan My Trip", href: "/planner" },
-    { label: "About", href: "/about" },
-];
-
-const HIGHLIGHTS = [
-    "Horton Plains & World's End",
-    "Gregory Lake",
-    "Victoria Park",
-    "Hakgala Botanical Garden",
-    "Single Tree Hill",
-    "Nuwara Eliya Race Course",
-];
+    { key: "experiences", href: "/experiences" },
+    { key: "tripIdeas", href: "/trip-ideas" },
+    { key: "guides", href: "/guides" },
+    { key: "planTrip", href: "/planner" },
+    { key: "about", href: "/about" },
+] as const;
 
 const PRACTICAL = [
-    { label: "Best Time to Visit", href: "/guides/best-time-to-visit" },
-    { label: "Getting There", href: "/guides/getting-there" },
-    { label: "Weather Guide", href: "/guides/weather" },
-    { label: "Local Tips", href: "/guides/local-tips" },
-];
+    { key: "bestTimeToVisit", href: "/guides/best-time-to-visit" },
+    { key: "gettingThere", href: "/guides/getting-there" },
+    { key: "weatherGuide", href: "/guides/weather" },
+    { key: "localTips", href: "/guides/local-tips" },
+] as const;
 
 export default function Footer() {
+    const t = useTranslations("footer");
     const year = new Date().getFullYear();
+    const highlights = t.raw("highlights") as string[];
 
     return (
         <footer className="bg-[#060e08] text-white">
@@ -50,13 +44,13 @@ export default function Footer() {
                                 className="text-white font-bold leading-none tracking-[-0.02em]"
                                 style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem" }}
                             >
-                                Nuwara Eliya
+                                {t("logoTitle")}
                             </p>
                             <p
                                 className="uppercase tracking-[0.28em] text-[var(--color-gold-mid)] mt-1"
                                 style={{ fontFamily: "var(--font-sans)", fontSize: "0.5rem" }}
                             >
-                                Guide
+                                {t("logoSubtitle")}
                             </p>
                         </div>
 
@@ -64,7 +58,7 @@ export default function Footer() {
                             className="italic text-white/38 leading-[1.75] max-w-[220px] mb-7"
                             style={{ fontFamily: "var(--font-sans)", fontSize: "0.88rem" }}
                         >
-                            The hill country, properly explored. Honest advice from locals — not an agency.
+                            {t("tagline")}
                         </p>
 
                         <a
@@ -75,7 +69,7 @@ export default function Footer() {
                             style={{ fontFamily: "var(--font-sans)", fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.06em", borderRadius: "2px", padding: "0.5rem 1rem" }}
                         >
                             <MessageCircle size={14} strokeWidth={1.75} />
-                            WhatsApp Us
+                            {t("whatsappUs")}
                         </a>
                     </div>
 
@@ -85,17 +79,17 @@ export default function Footer() {
                             className="inline-block uppercase tracking-[0.2em] text-[var(--color-gold)] font-semibold mb-6"
                             style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)" }}
                         >
-                            Explore
+                            {t("exploreHeading")}
                         </p>
                         <ul className="flex flex-col gap-[0.85rem] list-none">
-                            {EXPLORE.map(({ label, href }) => (
+                            {EXPLORE.map(({ key, href }) => (
                                 <li key={href}>
                                     <Link
                                         href={href}
                                         className="block text-white/45 transition-colors duration-200 hover:text-[var(--color-gold-mid)]"
                                         style={{ fontFamily: "var(--font-sans)", fontSize: "0.83rem" }}
                                     >
-                                        {label}
+                                        {t(key)}
                                     </Link>
                                 </li>
                             ))}
@@ -108,10 +102,10 @@ export default function Footer() {
                             className="inline-block uppercase tracking-[0.2em] text-[var(--color-gold)] font-semibold mb-6"
                             style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)" }}
                         >
-                            Top Highlights
+                            {t("topHighlightsHeading")}
                         </p>
                         <ul className="flex flex-col gap-[0.85rem] list-none">
-                            {HIGHLIGHTS.map(name => (
+                            {highlights.map(name => (
                                 <li
                                     key={name}
                                     className="flex items-center gap-[0.6rem] text-white/45"
@@ -130,17 +124,17 @@ export default function Footer() {
                             className="inline-block uppercase tracking-[0.2em] text-[var(--color-gold)] font-semibold mb-6"
                             style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)" }}
                         >
-                            Practical Info
+                            {t("practicalInfoHeading")}
                         </p>
                         <ul className="flex flex-col gap-[0.85rem] list-none mb-10">
-                            {PRACTICAL.map(({ label, href }) => (
-                                <li key={label}>
+                            {PRACTICAL.map(({ key, href }) => (
+                                <li key={href}>
                                     <Link
                                         href={href}
                                         className="block text-white/45 transition-colors duration-200 hover:text-[var(--color-gold-mid)]"
                                         style={{ fontFamily: "var(--font-sans)", fontSize: "0.83rem" }}
                                     >
-                                        {label}
+                                        {t(key)}
                                     </Link>
                                 </li>
                             ))}
@@ -158,7 +152,7 @@ export default function Footer() {
                                 className="text-white/30"
                                 style={{ fontFamily: "var(--font-sans)", fontSize: "0.78rem" }}
                             >
-                                Nuwara Eliya, Sri Lanka
+                                {t("location")}
                             </span>
                         </div>
                     </div>
@@ -173,13 +167,13 @@ export default function Footer() {
                         className="text-white/22"
                         style={{ fontFamily: "var(--font-sans)", fontSize: "0.72rem" }}
                     >
-                        &copy; {year} Nuwara Eliya Guide. All rights reserved.
+                        {t("copyright", { year })}
                     </p>
                     <p
                         className="text-white/22"
                         style={{ fontFamily: "var(--font-sans)", fontSize: "0.72rem" }}
                     >
-                        Made with care in Sri Lanka
+                        {t("madeWithCare")}
                     </p>
                 </div>
             </div>

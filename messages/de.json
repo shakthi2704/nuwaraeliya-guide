@@ -1,0 +1,297 @@
+{
+    "navigation": {
+        "logoTitle": "Nuwara Eliya",
+        "logoSubtitle": "Guide",
+        "primaryNav": "Primary navigation",
+        "experiences": "Experiences",
+        "tripIdeas": "Trip Ideas",
+        "guides": "Travel Guides",
+        "about": "About",
+        "planTrip": "Plan My Trip",
+        "openMenu": "Open menu",
+        "closeMenu": "Close menu"
+    },
+    "footer": {
+        "logoTitle": "Nuwara Eliya",
+        "logoSubtitle": "Guide",
+        "tagline": "The hill country, properly explored. Honest advice from locals — not an agency.",
+        "whatsappUs": "WhatsApp Us",
+        "exploreHeading": "Explore",
+        "topHighlightsHeading": "Top Highlights",
+        "practicalInfoHeading": "Practical Info",
+        "experiences": "Experiences",
+        "tripIdeas": "Trip Ideas",
+        "guides": "Travel Guides",
+        "planTrip": "Plan My Trip",
+        "about": "About",
+        "highlights": [
+            "Horton Plains & World's End",
+            "Gregory Lake",
+            "Victoria Park",
+            "Hakgala Botanical Garden",
+            "Single Tree Hill",
+            "Nuwara Eliya Race Course"
+        ],
+        "bestTimeToVisit": "Best Time to Visit",
+        "gettingThere": "Getting There",
+        "weatherGuide": "Weather Guide",
+        "localTips": "Local Tips",
+        "location": "Nuwara Eliya, Sri Lanka",
+        "copyright": "© {year} Nuwara Eliya Guide. All rights reserved.",
+        "madeWithCare": "Made with care in Sri Lanka"
+    },
+    "hero": {
+        "locationTag": "Sri Lanka · Hügelland · Gegründet 1846",
+        "welcomeTo": "Willkommen in",
+        "tagline": "Nebelige Teehügel, kolonialer Charme und frische Bergluft. Ehrliche Tipps von Einheimischen – völlig kostenlos.",
+        "ctaPlanTrip": "Meine Reise planen – kostenlos",
+        "ctaExplorePlaces": "Orte entdecken",
+        "stats": [
+            {
+                "value": "1.868 m",
+                "label": "Über dem Meeresspiegel"
+            },
+            {
+                "value": "16 °C",
+                "label": "Ganzjähriges Klima"
+            },
+            {
+                "value": "20+",
+                "label": "Erlebnisse"
+            },
+            {
+                "value": "Kostenlos",
+                "label": "Lokale Tipps"
+            }
+        ]
+    },
+    "marquee": {
+        "items": [
+            "Teeland",
+            "Kolonialer Charme",
+            "Frische Bergluft",
+            "Pferderennen",
+            "Botanische Gärten",
+            "Kühles Klima",
+            "Nebelige Gipfel",
+            "Malerische Zugfahrten",
+            "Erdbeerfelder",
+            "Bergstation",
+            "World's End",
+            "Gregory-See"
+        ]
+    },
+    "featuredExperiences": {
+        "eyebrow": "Erlebnisse",
+        "heading": "Erlebnisse, die sich wirklich lohnen",
+        "subheading": "Keine einfache Checkliste, sondern sorgfältig ausgewählte Möglichkeiten, Ihre Zeit im Hügelland sinnvoll zu verbringen.",
+        "viewExperience": "Erlebnis ansehen",
+        "browseAll": "Alle Erlebnisse entdecken",
+        "items": [
+            {
+                "slug": "horton-plains-worlds-end",
+                "category": "Natur",
+                "title": "Horton Plains & World's End",
+                "description": "Wandern Sie bei Sonnenaufgang über das Hochplateau bis zum Rand der Steilküste, wo das Gelände 880 Meter tief ins darunterliegende Tal abfällt. Am schönsten während der Trockenzeit, wenn sich der Nebel bis zum späten Vormittag lichtet.",
+                "duration": "Halber Tag",
+                "alt": "Offenes Hochplateau der Horton Plains im ersten Morgenlicht"
+            },
+            {
+                "slug": "pedro-tea-estate",
+                "category": "Tee & Plantagen",
+                "title": "Pedro Tea Estate",
+                "description": "Verfolgen Sie den Weg des Teeblatts vom Strauch bis in die Tasse auf einer der ältesten noch betriebenen Teeplantagen des Hügellands. Die Fabrikführung verläuft in angenehmem Tempo und wird von Menschen begleitet, deren Familien seit Generationen hier arbeiten.",
+                "duration": "2–3 Stunden",
+                "alt": "Terrassenförmig angelegte Teefelder auf einer Plantage im Hügelland"
+            },
+            {
+                "slug": "gregory-lake-morning",
+                "category": "Entspannung",
+                "title": "Gregory-See im ersten Morgenlicht",
+                "description": "Ein ruhiger Spaziergang entlang des historischen Damms aus der Kolonialzeit, bevor die Stadt erwacht. Am frühen Morgen liegt der See spiegelglatt da und reflektiert die umliegenden Hügel nahezu perfekt.",
+                "duration": "1–2 Stunden",
+                "alt": "Ruhiger See, umgeben von grünen Hügeln bei Sonnenaufgang"
+            }
+        ]
+    },
+    "popularTripIdeas": {
+        "eyebrow": "Reiseideen",
+        "heading": "Reiserouten, die bereits gut durchdacht sind",
+        "subheading": "Komplette Reisepläne statt einer langen Liste von Sehenswürdigkeiten. Wählen Sie die Route, die Ihrer Reise am nächsten kommt, und passen Sie sie nach Ihren Wünschen an.",
+        "viewItinerary": "Reiseroute ansehen →",
+        "items": [
+            {
+                "slug": "week-in-the-hills",
+                "duration": "7 Tage",
+                "title": "Eine Woche im Hügelland",
+                "description": "Die entspannte Variante. Genug Zeit, um den Rhythmus des Hügellands wirklich zu erleben – morgens Teeplantagen, Sonnenaufgang in den Horton Plains, ausgedehnte Mittagessen und frühe Abende, wenn die Bergluft kühl wird. Ideal für alle, die lieber vier Erlebnisse in Ruhe genießen als zehn im Eiltempo abhaken.",
+                "highlights": [
+                    "Horton Plains & World's End",
+                    "Pedro Tea Estate",
+                    "Gregory-See im ersten Morgenlicht"
+                ],
+                "alt": "Kurvenreiche Straße durch nebelverhangene Teeplantagen",
+                "featured": true
+            },
+            {
+                "slug": "three-days-as-a-couple",
+                "duration": "3 Tage",
+                "title": "3 Tage zu zweit",
+                "description": "Eine kurze, ruhige Reise mit entspannten Morgenstunden und einem besonderen Ausblick. Weniger Programm, mehr Atmosphäre.",
+                "highlights": [
+                    "Gregory-See im ersten Morgenlicht",
+                    "Pedro Tea Estate"
+                ],
+                "alt": "Silhouette eines Paares bei Sonnenuntergang"
+            },
+            {
+                "slug": "the-long-weekend",
+                "duration": "2 Tage",
+                "title": "Das lange Wochenende",
+                "description": "Für alle, die nur zwei Tage Zeit haben und dennoch das Gefühl einer echten Reise erleben möchten – statt eines hektischen Kurztrips.",
+                "highlights": [
+                    "Horton Plains & World's End",
+                    "Gregory-See im ersten Morgenlicht"
+                ],
+                "alt": "Luftaufnahme sanft geschwungener grüner Hügel unter bewölktem Himmel"
+            }
+        ]
+    },
+    "seasonalGuide": {
+        "eyebrow": "Beste Reisezeit",
+        "heading": "Wann Sie Nuwara Eliya besuchen sollten",
+        "intro": "Nuwara Eliya liegt auf 1.868 m Höhe und bietet das ganze Jahr über ein angenehmes, kühles Klima. Die Trockenzeit (Dezember bis März) gilt jedoch als die schönste Zeit, um das Hügelland zu erleben.",
+        "nowBadge": "Jetzt",
+        "currentlyLabel": "Aktuell – {month}",
+        "ratings": {
+            "best": "Am besten",
+            "good": "Gut",
+            "ok": "Übergangszeit",
+            "wet": "Regenzeit"
+        },
+        "months": [
+            {
+                "short": "Jan",
+                "full": "Januar",
+                "rating": "good",
+                "note": "Kühl und trocken. Hauptreisezeit."
+            },
+            {
+                "short": "Feb",
+                "full": "Februar",
+                "rating": "best",
+                "note": "Bestes Wetter. Angenehm milde Tage."
+            },
+            {
+                "short": "Feb",
+                "full": "Februar",
+                "rating": "best",
+                "note": "Bestes Wetter. Angenehm milde Tage."
+            },
+            {
+                "short": "Apr",
+                "full": "April",
+                "rating": "ok",
+                "note": "Erste gelegentliche Regenschauer."
+            },
+            {
+                "short": "Mai",
+                "full": "Mai",
+                "rating": "wet",
+                "note": "Beginn des Südwestmonsuns."
+            },
+            {
+                "short": "Jun",
+                "full": "Juni",
+                "rating": "wet",
+                "note": "Starker Regen und neblige Hügel."
+            },
+            {
+                "short": "Jul",
+                "full": "Juli",
+                "rating": "wet",
+                "note": "Hauptmonsunzeit. Üppig grüne Landschaft."
+            },
+            {
+                "short": "Aug",
+                "full": "August",
+                "rating": "wet",
+                "note": "Regenreich, aber beeindruckende Landschaft."
+            },
+            {
+                "short": "Sep",
+                "full": "September",
+                "rating": "ok",
+                "note": "Der Regen lässt nach. Wasserfälle erreichen ihren Höhepunkt."
+            },
+            {
+                "short": "Okt",
+                "full": "Oktober",
+                "rating": "ok",
+                "note": "Zwischenmonsun mit häufigen Schauern."
+            },
+            {
+                "short": "Nov",
+                "full": "November",
+                "rating": "good",
+                "note": "Angenehm kühl. Gute Reisezeit."
+            },
+            {
+                "short": "Nov",
+                "full": "November",
+                "rating": "good",
+                "note": "Angenehm kühl. Gute Reisezeit."
+            }
+        ],
+        "seasons": [
+            {
+                "range": "April",
+                "title": "Die April-Saison",
+                "description": "Nuwara Eliya zeigt sich von seiner lebendigsten Seite – mit Pferderennen, Autorennen und einer Stadt voller Blüten."
+            },
+            {
+                "range": "Dez – Mär",
+                "title": "Trockenzeit",
+                "description": "Die klarsten Himmel des Jahres und die besten Chancen auf freie Sicht in den Horton Plains."
+            },
+            {
+                "range": "Jun – Sep",
+                "title": "Neblige Morgen",
+                "description": "Vor Sonnenaufgang zieht Nebel durch die Teehügel. Ruhiger, entspannter und besonders fotogen."
+            },
+            {
+                "range": "Okt – Nov, Mai",
+                "title": "Übergangszeit",
+                "description": "Weniger Besucher, günstigere Preise und dennoch gutes Wetter für Ausflüge."
+            }
+        ]
+    },
+    "whyTrustUs": {
+        "eyebrow": "Warum Sie uns vertrauen können",
+        "heading": "Keine Agentur. Keine Buchungsplattform.",
+        "pillars": [
+            {
+                "mark": "01",
+                "title": "Von Menschen geschrieben, die hier leben",
+                "description": "Nicht von anderen Websites kopiert, nicht ausgelagert und nicht einmal geschrieben und dann vergessen. Jeder Reiseführer stammt von Menschen, die das Hügelland wirklich kennen."
+            },
+            {
+                "mark": "02",
+                "title": "Keine Buchungen, keine Provisionen",
+                "description": "Wir verkaufen weder Unterkünfte noch Touren. Deshalb werden unsere Empfehlungen nicht davon beeinflusst, wer uns bezahlt. Wenn sich etwas nicht lohnt, sagen wir das offen."
+            },
+            {
+                "mark": "03",
+                "title": "Regelmäßig aktualisiert",
+                "description": "Viele Reiseinformationen über diese Region wurden vor Jahren erstellt und nie wieder überarbeitet. Unsere Inhalte werden regelmäßig geprüft und aktualisiert, sobald sich vor Ort etwas ändert."
+            }
+        ]
+    },
+    "planMyTripCTA": {
+        "eyebrow": "Reise planen",
+        "heading": "Erzählen Sie uns von Ihrer Reise.\nWir zeigen Ihnen, wie Sie Ihre Zeit am besten nutzen.",
+        "description": "Senden Sie uns Ihre Reisedaten, Ihr gewünschtes Reisetempo und was Ihnen wichtig ist. Sie erhalten einen individuellen Reiseplan von jemandem, der das Hügelland wirklich kennt – keine automatisch erstellte Liste und kein Verkaufsgespräch. Komplett kostenlos.",
+        "cta": "Meine Reise planen – kostenlos",
+        "note": "Kein Konto erforderlich. Antwort innerhalb von 24 Stunden."
+    }
+}

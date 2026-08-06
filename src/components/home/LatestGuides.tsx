@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-
+import { useTranslations } from "next-intl";
 type Guide = {
     slug: string;
     category: string;
@@ -46,6 +46,8 @@ const GUIDES: Guide[] = [
 ];
 
 export default function LatestGuides() {
+    const t = useTranslations("Home");
+
     return (
         <section
             className="py-[var(--section-gap)]"

@@ -1,27 +1,10 @@
-// MarqueeStrip — infinite scrolling keyword strip.
-// Uses inline animation style — the most reliable cross-browser approach
-// for a seamless marquee loop. translateX(-50%) works because the track
-// contains exactly 2x the items, so the midpoint is visually identical
-// to the start.
+import { getMessages } from "next-intl/server";
 
-const KEYWORDS = [
-    "Tea Country",
-    "Colonial Charm",
-    "Mountain Air",
-    "Horse Racing",
-    "Botanical Gardens",
-    "Cool Climate",
-    "Misty Peaks",
-    "Scenic Train Rides",
-    "Strawberry Fields",
-    "Hill Station",
-    "World's End",
-    "Gregory Lake",
-];
+export default async function MarqueeStrip() {
 
-export default function MarqueeStrip() {
-    const items = [...KEYWORDS, ...KEYWORDS];
-
+    const messages = await getMessages();
+    const marqueeItems = messages.marquee.items as string[];
+    const items = [...marqueeItems, ...marqueeItems];
     return (
         <section
             aria-label="Highlights"
@@ -39,8 +22,8 @@ export default function MarqueeStrip() {
                     animation: "marquee 32s linear infinite",
                 }}
             >
-                {items.map((keyword, i) => (
-                    <span key={i} className="inline-flex items-center">
+                {items.map((item, index) => (
+                    <span key={index} className="inline-flex items-center">
                         <span
                             className="uppercase tracking-[0.18em]"
                             style={{
@@ -51,7 +34,7 @@ export default function MarqueeStrip() {
                                 opacity: 0.82,
                             }}
                         >
-                            {keyword}
+                            {item}
                         </span>
                         <span
                             className="inline-block mx-6 w-[4px] h-[4px] rounded-full flex-shrink-0 opacity-35"

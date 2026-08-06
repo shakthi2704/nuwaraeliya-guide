@@ -1,14 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { ButtonLink } from "@/components/ui/Button";
-
-const STATS = [
-    { value: "1,868m", label: "Above Sea Level" },
-    { value: "16°C", label: "Year-Round Climate" },
-    { value: "20+", label: "Experiences" },
-    { value: "Free", label: "Local Advice" },
-];
 
 // Entrance animation — Tailwind cannot express JS-driven opacity/transform,
 // so these two properties stay as inline styles on each staggered element.
@@ -21,11 +15,13 @@ function fadeIn(loaded: boolean, delay: string, dy = "20px") {
 }
 
 export default function Hero() {
+    const t = useTranslations("hero");
+    const stats = t.raw("stats") as { value: string; label: string }[];
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        const t = setTimeout(() => setLoaded(true), 80);
-        return () => clearTimeout(t);
+        const timer = setTimeout(() => setLoaded(true), 80);
+        return () => clearTimeout(timer);
     }, []);
 
     return (
@@ -62,7 +58,7 @@ export default function Hero() {
                             className="uppercase tracking-[0.22em] text-white/98"
                             style={{ fontFamily: "var(--font-sans)", fontSize: "0.6rem", fontWeight: 500 }}
                         >
-                            Sri Lanka · Hill Country · Est. 1846
+                            {t("locationTag")}
                         </span>
                     </div>
 
@@ -71,7 +67,7 @@ export default function Hero() {
                         className="italic font-light text-[var(--color-gold-mid)] -mb-[0.1em]"
                         style={{ ...fadeIn(loaded, "0.35s", "16px"), fontSize: "clamp(0.95rem, 1.8vw, 1.6rem)" }}
                     >
-                        Welcome to
+                        {t("welcomeTo")}
                     </p>
 
                     {/* Main heading */}
@@ -96,17 +92,16 @@ export default function Hero() {
                                 className="italic font-medium text-white/60 leading-[1.75]"
                                 style={{ fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)" }}
                             >
-                                Misty tea hills, colonial charm, and cool mountain air.
-                                Honest guidance from locals — completely free.
+                                {t("tagline")}
                             </p>
                         </div>
 
                         <div className="flex flex-wrap gap-3 justify-center">
                             <ButtonLink href="/planner" variant="gold" size="md">
-                                Plan My Trip — Free
+                                {t("ctaPlanTrip")}
                             </ButtonLink>
                             <ButtonLink href="/places" variant="glass" size="md">
-                                Explore Places
+                                {t("ctaExplorePlaces")}
                             </ButtonLink>
                         </div>
                     </div>
@@ -125,7 +120,7 @@ export default function Hero() {
                 <div className="grid justify-center mx-auto max-w-[900px]"
                     style={{ gridTemplateColumns: "repeat(4, minmax(0, 220px))" }}
                 >
-                    {STATS.map(({ value, label }, i) => (
+                    {stats.map(({ value, label }, i) => (
                         <div
                             key={label}
                             className={[
