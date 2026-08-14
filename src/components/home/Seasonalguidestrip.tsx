@@ -1,4 +1,6 @@
 "use client";
+import { useTranslations } from "next-intl";
+
 
 type Rating = "best" | "good" | "ok" | "wet";
 
@@ -9,20 +11,20 @@ type Month = {
     note: string;
 };
 
-const MONTHS: Month[] = [
-    { short: "Jan", full: "January", rating: "good", note: "Cool and dry. Peak season." },
-    { short: "Feb", full: "February", rating: "best", note: "Best weather. Mild days." },
-    { short: "Mar", full: "March", rating: "best", note: "Clear skies, warm afternoons." },
-    { short: "Apr", full: "April", rating: "ok", note: "Occasional showers begin." },
-    { short: "May", full: "May", rating: "wet", note: "South-west monsoon arrives." },
-    { short: "Jun", full: "June", rating: "wet", note: "Heavy rain, misty hills." },
-    { short: "Jul", full: "July", rating: "wet", note: "Peak monsoon. Lush green." },
-    { short: "Aug", full: "August", rating: "wet", note: "Wet but dramatic scenery." },
-    { short: "Sep", full: "September", rating: "ok", note: "Rain easing. Waterfalls peak." },
-    { short: "Oct", full: "October", rating: "ok", note: "Inter-monsoon showers." },
-    { short: "Nov", full: "November", rating: "good", note: "Cooling down. Good visits." },
-    { short: "Dec", full: "December", rating: "best", note: "Cool, festive, and clear." },
-];
+// const MONTHS: Month[] = [
+//     { short: "Jan", full: "January", rating: "good", note: "Cool and dry. Peak season." },
+//     { short: "Feb", full: "February", rating: "best", note: "Best weather. Mild days." },
+//     { short: "Mar", full: "March", rating: "best", note: "Clear skies, warm afternoons." },
+//     { short: "Apr", full: "April", rating: "ok", note: "Occasional showers begin." },
+//     { short: "May", full: "May", rating: "wet", note: "South-west monsoon arrives." },
+//     { short: "Jun", full: "June", rating: "wet", note: "Heavy rain, misty hills." },
+//     { short: "Jul", full: "July", rating: "wet", note: "Peak monsoon. Lush green." },
+//     { short: "Aug", full: "August", rating: "wet", note: "Wet but dramatic scenery." },
+//     { short: "Sep", full: "September", rating: "ok", note: "Rain easing. Waterfalls peak." },
+//     { short: "Oct", full: "October", rating: "ok", note: "Inter-monsoon showers." },
+//     { short: "Nov", full: "November", rating: "good", note: "Cooling down. Good visits." },
+//     { short: "Dec", full: "December", rating: "best", note: "Cool, festive, and clear." },
+// ];
 
 type Season = {
     range: string;
@@ -30,38 +32,41 @@ type Season = {
     description: string;
 };
 
-const SEASONS: Season[] = [
-    {
-        range: "April",
-        title: "The April Season",
-        description: "Nuwara Eliya at its fullest — horse racing, motor racing, and the town in bloom.",
-    },
-    {
-        range: "Dec — Mar",
-        title: "Dry Season",
-        description: "The clearest skies of the year. Best odds for uninterrupted views from Horton Plains.",
-    },
-    {
-        range: "Jun — Sep",
-        title: "Misty Mornings",
-        description: "Fog rolls through the tea hills before sunrise. Quieter, slower, and photogenic.",
-    },
-    {
-        range: "Oct — Nov, May",
-        title: "Shoulder Season",
-        description: "Fewer travelers, lower rates, and still good weather for getting around.",
-    },
-];
+// const SEASONS: Season[] = [
+//     {
+//         range: "April",
+//         title: "The April Season",
+//         description: "Nuwara Eliya at its fullest — horse racing, motor racing, and the town in bloom.",
+//     },
+//     {
+//         range: "Dec — Mar",
+//         title: "Dry Season",
+//         description: "The clearest skies of the year. Best odds for uninterrupted views from Horton Plains.",
+//     },
+//     {
+//         range: "Jun — Sep",
+//         title: "Misty Mornings",
+//         description: "Fog rolls through the tea hills before sunrise. Quieter, slower, and photogenic.",
+//     },
+//     {
+//         range: "Oct — Nov, May",
+//         title: "Shoulder Season",
+//         description: "Fewer travelers, lower rates, and still good weather for getting around.",
+//     },
+// ];
 
-const RATING_CONFIG: Record<Rating, { label: string; bar: number; color: string }> = {
-    best: { label: "Best", bar: 1, color: "var(--color-ink)" },
-    good: { label: "Good", bar: 0.72, color: "var(--color-green)" },
-    ok: { label: "Shoulder", bar: 0.48, color: "var(--color-sage)" },
-    wet: { label: "Rainy", bar: 0.22, color: "rgba(14,28,18,0.3)" },
+const RATING_CONFIG: Record<Rating, { bar: number; color: string }> = {
+    best: { bar: 1, color: "var(--color-ink)" },
+    good: { bar: 0.72, color: "var(--color-green)" },
+    ok: { bar: 0.48, color: "var(--color-sage)" },
+    wet: { bar: 0.22, color: "rgba(14,28,18,0.3)" },
 };
 
 export default function SeasonalGuideStrip() {
+    const t = useTranslations("seasonalGuide");
     const currentMonth = new Date().getMonth();
+    const MONTHS = t.raw("months") as Month[];
+    const SEASONS = t.raw("seasons") as Season[];
 
     return (
         <section
@@ -75,7 +80,7 @@ export default function SeasonalGuideStrip() {
                     className="uppercase tracking-[0.22em] font-semibold block mb-4"
                     style={{ fontFamily: "var(--font-sans)", fontSize: "0.62rem", color: "rgba(14,28,18,0.65)" }}
                 >
-                    When to Visit
+                    {t("eyebrow")}
                 </span>
 
                 <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6">
@@ -89,7 +94,7 @@ export default function SeasonalGuideStrip() {
                             color: "var(--color-ink)",
                         }}
                     >
-                        Best Time to Visit
+                        {t("heading")}
                     </h2>
 
                     {/* Legend */}
@@ -104,7 +109,7 @@ export default function SeasonalGuideStrip() {
                                     className="tracking-[0.08em]"
                                     style={{ fontFamily: "var(--font-sans)", fontSize: "0.66rem", color: "rgba(14,28,18,0.75)" }}
                                 >
-                                    {RATING_CONFIG[r].label}
+                                    {t(`ratings.${r}`)}
                                 </span>
                             </div>
                         ))}
@@ -115,8 +120,7 @@ export default function SeasonalGuideStrip() {
                     className="leading-[1.75] mb-10 max-w-[46ch]"
                     style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "rgba(14,28,18,0.72)" }}
                 >
-                    Nuwara Eliya sits at 1,868m — it stays cool year-round, but the dry
-                    season (December to March) is when the hills are at their most magical.
+                    {t("intro")}
                 </p>
 
                 {/* Month grid */}
@@ -148,7 +152,7 @@ export default function SeasonalGuideStrip() {
                                             padding: "2px 8px",
                                         }}
                                     >
-                                        Now
+                                        {t("nowBadge")}
                                     </span>
                                 )}
 
@@ -185,7 +189,7 @@ export default function SeasonalGuideStrip() {
                                         color: isCurrent ? "rgba(255,255,255,0.85)" : "rgba(14,28,18,0.65)",
                                     }}
                                 >
-                                    {config.label}
+                                    {t(`ratings.${month.rating}`)}
                                 </span>
                             </div>
                         );
@@ -210,7 +214,7 @@ export default function SeasonalGuideStrip() {
                             className="uppercase tracking-[0.14em] font-semibold"
                             style={{ fontFamily: "var(--font-sans)", fontSize: "0.68rem", color: "var(--color-ink)" }}
                         >
-                            Currently — {MONTHS[currentMonth].full}
+                            {t("currentlyLabel", { month: MONTHS[currentMonth].full })}
                         </span>
                     </div>
 

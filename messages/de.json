@@ -183,10 +183,10 @@
                 "note": "Bestes Wetter. Angenehm milde Tage."
             },
             {
-                "short": "Feb",
-                "full": "Februar",
+                "short": "Mär",
+                "full": "März",
                 "rating": "best",
-                "note": "Bestes Wetter. Angenehm milde Tage."
+                "note": "Klarer Himmel, milde Nachmittage."
             },
             {
                 "short": "Apr",
@@ -237,10 +237,10 @@
                 "note": "Angenehm kühl. Gute Reisezeit."
             },
             {
-                "short": "Nov",
-                "full": "November",
-                "rating": "good",
-                "note": "Angenehm kühl. Gute Reisezeit."
+                "short": "Dez",
+                "full": "Dezember",
+                "rating": "best",
+                "note": "Kühl, festlich und klar."
             }
         ],
         "seasons": [

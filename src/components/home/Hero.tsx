@@ -97,10 +97,10 @@ export default function Hero() {
                         </div>
 
                         <div className="flex flex-wrap gap-3 justify-center">
-                            <ButtonLink href="/planner" variant="gold" size="md">
+                            <ButtonLink href="/plan-my-trip" variant="gold" size="md">
                                 {t("ctaPlanTrip")}
                             </ButtonLink>
-                            <ButtonLink href="/places" variant="glass" size="md">
+                            <ButtonLink href="/experiences" variant="glass" size="md">
                                 {t("ctaExplorePlaces")}
                             </ButtonLink>
                         </div>

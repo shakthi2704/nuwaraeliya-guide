@@ -114,7 +114,7 @@ export default function Navbar() {
                     <div className="hidden md:flex items-center gap-6 ml-auto flex-shrink-0 z-[2]">
                         <LanguageSwitcher />
                         <Link
-                            href="/planner"
+                            href="/plan-my-trip"
                             className="inline-flex items-center justify-center tracking-[0.16em] uppercase whitespace-nowrap no-underline transition-colors duration-200
                                        bg-[var(--color-gold-mid)] text-[var(--color-forest)] hover:bg-[var(--color-gold)]"
                             style={{ fontFamily: "var(--font-sans)", fontSize: "0.65rem", fontWeight: 600, padding: "0.55rem 1.35rem", borderRadius: "1px" }}
@@ -172,7 +172,7 @@ export default function Navbar() {
                 </div>
                 <div className="pt-6">
                     <Link
-                        href="/planner"
+                        href="/plan-my-trip"
                         className="block text-center w-full tracking-[0.16em] uppercase no-underline transition-colors duration-200
                                    bg-[var(--color-gold-mid)] text-[var(--color-forest)] hover:bg-[var(--color-gold)]"
                         style={{ fontFamily: "var(--font-sans)", fontSize: "0.65rem", fontWeight: 600, padding: "0.85rem", borderRadius: "1px" }}

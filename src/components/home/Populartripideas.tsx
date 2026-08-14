@@ -1,5 +1,6 @@
 "use client";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 type TripIdea = {
     slug: string;
@@ -47,8 +48,9 @@ const TRIP_IDEAS: TripIdea[] = [
 ];
 
 export default function PopularTripIdeas() {
-    const featured = TRIP_IDEAS.find(t => t.featured) ?? TRIP_IDEAS[0];
-    const rest = TRIP_IDEAS.filter(t => t.slug !== featured.slug);
+    const t = useTranslations("popularTripIdeas");
+    const featured = TRIP_IDEAS.find(idea => idea.featured) ?? TRIP_IDEAS[0];
+    const rest = TRIP_IDEAS.filter(idea => idea.slug !== featured.slug);
 
     return (
         <section
@@ -62,7 +64,7 @@ export default function PopularTripIdeas() {
                         className="uppercase tracking-[0.22em] font-semibold text-[var(--color-gold)] mb-4"
                         style={{ fontFamily: "var(--font-sans)", fontSize: "0.62rem" }}
                     >
-                        Trip Ideas
+                        {t("eyebrow")}
                     </span>
 
                     <div
@@ -81,7 +83,7 @@ export default function PopularTripIdeas() {
                             color: "var(--color-ink)",
                         }}
                     >
-                        Trips that already make sense
+                        {t("heading")}
                     </h2>
 
                     <p
@@ -92,8 +94,7 @@ export default function PopularTripIdeas() {
                             color: "var(--color-muted)",
                         }}
                     >
-                        Whole itineraries, not a list of things to sort through yourself.
-                        Pick the one closest to your trip and adjust from there.
+                        {t("subheading")}
                     </p>
                 </div>
 
@@ -121,6 +122,7 @@ function TripCard({
     height: string;
     showHighlights?: boolean;
 }) {
+    const t = useTranslations("popularTripIdeas");
     return (
         <Link
             href={`/trip-ideas/${idea.slug}`}
@@ -194,7 +196,7 @@ function TripCard({
                         width: "fit-content",
                     }}
                 >
-                    View Itinerary &#8594;
+                    {t("viewItinerary")} &#8594;
                 </span>
             </div>
         </Link>

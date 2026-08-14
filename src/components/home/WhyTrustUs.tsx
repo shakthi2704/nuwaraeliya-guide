@@ -1,3 +1,7 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 type Pillar = {
     mark: string;
     title: string;
@@ -26,6 +30,7 @@ const PILLARS: Pillar[] = [
 ];
 
 export default function WhyTrustUs() {
+    const t = useTranslations("whyTrustUs");
     return (
         <section
             className="py-[var(--section-gap)]"
@@ -38,7 +43,7 @@ export default function WhyTrustUs() {
                         className="uppercase tracking-[0.22em] font-semibold mb-4"
                         style={{ fontFamily: "var(--font-sans)", fontSize: "0.62rem", color: "var(--color-gold)" }}
                     >
-                        Why Trust Us
+                        {t("eyebrow")}
                     </span>
 
                     <div
@@ -56,7 +61,7 @@ export default function WhyTrustUs() {
                             color: "var(--color-ink)",
                         }}
                     >
-                        Not an agency. Not a booking site.
+                        {t("heading")}
                     </h2>
                 </div>
 

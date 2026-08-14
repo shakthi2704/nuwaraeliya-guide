@@ -31,6 +31,15 @@
   --color-gold-mid: #c9a55a;
   --color-gold-pale: #f0e6d0;
 
+  /* Reserved: semantic/functional colors — unused in marketing site,
+     for future forms and Phase 5 dashboard states. Kept in the same
+     muted, warm-leaning family as the core palette so they don't
+     clash when eventually used. */
+  --color-error: #a8503f;
+  --color-success: #5b8064;
+  --color-warning: #c17c3e;
+  --color-focus: var(--color-gold-mid);
+
   --section-gap: clamp(5rem, 9vw, 8.5rem);
   --section-gap-sm: clamp(3rem, 5vw, 5rem);
 }

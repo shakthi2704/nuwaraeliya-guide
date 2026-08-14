@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 type Experience = {
     slug: string;
@@ -49,6 +49,7 @@ const EXPERIENCES: Experience[] = [
 ];
 
 export default function FeaturedExperiences() {
+    const t = useTranslations("featuredExperiences");
     return (
         <section
             className="py-[clamp(5rem,9vw,8.5rem)]"
@@ -63,7 +64,7 @@ export default function FeaturedExperiences() {
                         className="uppercase tracking-[0.22em] font-semibold text-[var(--color-gold-mid)] mb-4"
                         style={{ fontFamily: "var(--font-sans)", fontSize: "0.62rem" }}
                     >
-                        Experiences
+                        {t("eyebrow")}
                     </span>
 
                     {/* Gold rule */}
@@ -87,7 +88,7 @@ export default function FeaturedExperiences() {
                             maxWidth: "480px",
                         }}
                     >
-                        Things worth doing here
+                        {t("heading")}
                     </h2>
 
                     <p
@@ -99,8 +100,7 @@ export default function FeaturedExperiences() {
                             maxWidth: "340px",
                         }}
                     >
-                        Not a checklist. A considered set of ways to spend
-                        your time in the hill country.
+                        {t("subheading")}
                     </p>
 
                 </div>
@@ -222,7 +222,7 @@ export default function FeaturedExperiences() {
                                         borderRadius: "6px"
                                     }}
                                 >
-                                    View Experience
+                                    {t("viewExperience")}
                                     <span style={{ fontSize: "0.85rem", lineHeight: 1 }}>&#8594;</span>
                                 </div>
 
@@ -243,7 +243,7 @@ export default function FeaturedExperiences() {
                             color: "rgba(255,255,255,0.35)",
                         }}
                     >
-                        Browse all experiences
+                        {t("browseAll")}
                         <span
                             style={{ color: "var(--color-gold-mid)", fontSize: "1rem", lineHeight: 1 }}
                         >

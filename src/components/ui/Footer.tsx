@@ -8,7 +8,7 @@ const EXPLORE = [
     { key: "experiences", href: "/experiences" },
     { key: "tripIdeas", href: "/trip-ideas" },
     { key: "guides", href: "/guides" },
-    { key: "planTrip", href: "/planner" },
+    { key: "planTrip", href: "/plan-my-trip" },
     { key: "about", href: "/about" },
 ] as const;
 
