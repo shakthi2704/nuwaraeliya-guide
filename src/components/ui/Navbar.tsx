@@ -77,7 +77,7 @@ export default function Navbar() {
                         </span>
                         <span
                             className="leading-none tracking-[0.3em] uppercase text-[var(--color-gold-mid)]"
-                            style={{ fontFamily: "var(--font-sans)", fontSize: "0.48rem", fontWeight: 500 }}
+                            style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: 500 }}
                         >
                             {t("logoSubtitle")}
                         </span>
@@ -102,7 +102,7 @@ export default function Navbar() {
                                             ? "nav-link--active text-[var(--color-gold-mid)]"
                                             : "text-white/58 hover:text-white/92",
                                     ].join(" ")}
-                                    style={{ fontFamily: "var(--font-sans)", fontSize: "0.68rem", fontWeight: 500 }}
+                                    style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: 500 }}
                                 >
                                     {t(key)}
                                 </Link>
@@ -117,7 +117,7 @@ export default function Navbar() {
                             href="/plan-my-trip"
                             className="inline-flex items-center justify-center tracking-[0.16em] uppercase whitespace-nowrap no-underline transition-colors duration-200
                                        bg-[var(--color-gold-mid)] text-[var(--color-forest)] hover:bg-[var(--color-gold)]"
-                            style={{ fontFamily: "var(--font-sans)", fontSize: "0.65rem", fontWeight: 600, padding: "0.55rem 1.35rem", borderRadius: "1px" }}
+                            style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: 600, padding: "0.55rem 1.35rem", borderRadius: "1px" }}
                         >
                             {t("planTrip")}
                         </Link>
@@ -175,7 +175,7 @@ export default function Navbar() {
                         href="/plan-my-trip"
                         className="block text-center w-full tracking-[0.16em] uppercase no-underline transition-colors duration-200
                                    bg-[var(--color-gold-mid)] text-[var(--color-forest)] hover:bg-[var(--color-gold)]"
-                        style={{ fontFamily: "var(--font-sans)", fontSize: "0.65rem", fontWeight: 600, padding: "0.85rem", borderRadius: "1px" }}
+                        style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: 600, padding: "0.85rem", borderRadius: "1px" }}
                     >
                         {t("planTrip")}
                     </Link>

@@ -56,7 +56,7 @@ export default function Hero() {
                         <span className="w-[5px] h-[5px] rounded-full bg-[var(--color-gold)] flex-shrink-0" />
                         <span
                             className="uppercase tracking-[0.22em] text-white/98"
-                            style={{ fontFamily: "var(--font-sans)", fontSize: "0.6rem", fontWeight: 500 }}
+                            style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: 500 }}
                         >
                             {t("locationTag")}
                         </span>
@@ -136,7 +136,7 @@ export default function Hero() {
                             </p>
                             <p
                                 className="uppercase tracking-[0.1em] text-white/38"
-                                style={{ fontFamily: "var(--font-sans)", fontSize: "0.6rem" }}
+                                style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)" }}
                             >
                                 {label}
                             </p>

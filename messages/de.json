@@ -293,5 +293,11 @@
         "description": "Senden Sie uns Ihre Reisedaten, Ihr gewünschtes Reisetempo und was Ihnen wichtig ist. Sie erhalten einen individuellen Reiseplan von jemandem, der das Hügelland wirklich kennt – keine automatisch erstellte Liste und kein Verkaufsgespräch. Komplett kostenlos.",
         "cta": "Meine Reise planen – kostenlos",
         "note": "Kein Konto erforderlich. Antwort innerhalb von 24 Stunden."
+    },
+    "latestGuides": {
+        "eyebrow": "Reiseführer",
+        "heading": "Die praktische Seite der Reise",
+        "allGuides": "Alle Reiseführer",
+        "readGuide": "Reiseführer lesen"
     }
 }

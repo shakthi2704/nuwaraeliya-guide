@@ -29,7 +29,7 @@ export default async function MarqueeStrip() {
                             style={{
                                 fontFamily: "var(--font-sans)",
                                 fontWeight: 600,
-                                fontSize: "0.65rem",
+                                fontSize: "var(--text-xs)",
                                 color: "var(--color-ink)",
                                 opacity: 0.82,
                             }}

@@ -50,6 +50,7 @@ const EXPERIENCES: Experience[] = [
 
 export default function FeaturedExperiences() {
     const t = useTranslations("featuredExperiences");
+
     return (
         <section
             className="py-[clamp(5rem,9vw,8.5rem)]"
@@ -62,7 +63,7 @@ export default function FeaturedExperiences() {
 
                     <span
                         className="uppercase tracking-[0.22em] font-semibold text-[var(--color-gold-mid)] mb-4"
-                        style={{ fontFamily: "var(--font-sans)", fontSize: "0.62rem" }}
+                        style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)" }}
                     >
                         {t("eyebrow")}
                     </span>
@@ -154,7 +155,7 @@ export default function FeaturedExperiences() {
                                         className="absolute bottom-3 left-4 uppercase tracking-[0.18em]"
                                         style={{
                                             fontFamily: "var(--font-sans)",
-                                            fontSize: "0.58rem",
+                                            fontSize: "var(--text-xs)",
                                             fontWeight: 700,
                                             color: "#0a1f12",
                                             background: "var(--color-gold-mid)",
@@ -198,7 +199,7 @@ export default function FeaturedExperiences() {
                                         className="tracking-[0.06em]"
                                         style={{
                                             fontFamily: "var(--font-sans)",
-                                            fontSize: "0.68rem",
+                                            fontSize: "var(--text-xs)",
                                             fontWeight: 400,
                                             color: "rgba(255,255,255,0.25)",
                                         }}
@@ -213,7 +214,7 @@ export default function FeaturedExperiences() {
                                     className="flex items-center justify-center gap-2 mt-2 uppercase tracking-[0.18em] transition-colors duration-200 group-hover:bg-[var(--color-gold)]"
                                     style={{
                                         fontFamily: "var(--font-sans)",
-                                        fontSize: "0.62rem",
+                                        fontSize: "var(--text-xs)",
                                         fontWeight: 700,
                                         color: "#0a1f12",
                                         background: "var(--color-gold-mid)",
@@ -238,7 +239,7 @@ export default function FeaturedExperiences() {
                         className="flex items-center gap-3 uppercase tracking-[0.2em] no-underline transition-colors duration-200 hover:text-[var(--color-gold-mid)]"
                         style={{
                             fontFamily: "var(--font-sans)",
-                            fontSize: "0.66rem",
+                            fontSize: "var(--text-xs)",
                             fontWeight: 600,
                             color: "rgba(255,255,255,0.35)",
                         }}

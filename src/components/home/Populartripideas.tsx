@@ -62,7 +62,7 @@ export default function PopularTripIdeas() {
                 <div className="flex flex-col items-start text-left mb-16 max-w-[560px]">
                     <span
                         className="uppercase tracking-[0.22em] font-semibold text-[var(--color-gold)] mb-4"
-                        style={{ fontFamily: "var(--font-sans)", fontSize: "0.62rem" }}
+                        style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)" }}
                     >
                         {t("eyebrow")}
                     </span>
@@ -123,6 +123,7 @@ function TripCard({
     showHighlights?: boolean;
 }) {
     const t = useTranslations("popularTripIdeas");
+
     return (
         <Link
             href={`/trip-ideas/${idea.slug}`}
@@ -146,7 +147,7 @@ function TripCard({
             <div className="relative z-[1] flex flex-col gap-2 px-6 py-6 md:px-8 md:py-7">
                 <span
                     className="uppercase tracking-[0.18em] font-semibold"
-                    style={{ fontFamily: "var(--font-sans)", fontSize: "0.62rem", color: "var(--color-gold-mid)" }}
+                    style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--color-gold-mid)" }}
                 >
                     {idea.duration}
                 </span>
@@ -189,14 +190,14 @@ function TripCard({
                     className="uppercase tracking-[0.16em] font-semibold mt-2"
                     style={{
                         fontFamily: "var(--font-sans)",
-                        fontSize: "0.68rem",
+                        fontSize: "var(--text-xs)",
                         color: "#ffffff",
                         borderBottom: "1px solid rgba(255,255,255,0.5)",
                         paddingBottom: "0.2rem",
                         width: "fit-content",
                     }}
                 >
-                    {t("viewItinerary")} &#8594;
+                    {t("viewItinerary")}
                 </span>
             </div>
         </Link>

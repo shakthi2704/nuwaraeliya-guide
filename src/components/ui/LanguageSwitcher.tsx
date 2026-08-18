@@ -32,7 +32,7 @@ export default function LanguageSwitcher() {
                                     ? "text-[var(--color-gold-mid)]"
                                     : "text-white/45 hover:text-white/80",
                             ].join(" ")}
-                            style={{ fontFamily: "var(--font-sans)", fontSize: "0.68rem", fontWeight: 500 }}
+                            style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: 500 }}
                         >
                             {LOCALE_LABELS[locale] ?? locale.toUpperCase()}
                         </Link>

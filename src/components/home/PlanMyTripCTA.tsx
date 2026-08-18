@@ -1,4 +1,11 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+
 export default function PlanMyTripCTA() {
+    const t = useTranslations("planMyTripCTA");
+
     return (
         <section
             className="py-[var(--section-gap)]"
@@ -8,9 +15,9 @@ export default function PlanMyTripCTA() {
 
                 <span
                     className="uppercase tracking-[0.22em] font-semibold mb-6"
-                    style={{ fontFamily: "var(--font-sans)", fontSize: "0.62rem", color: "var(--color-gold-mid)" }}
+                    style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--color-gold-mid)" }}
                 >
-                    Plan My Trip
+                    {t("eyebrow")}
                 </span>
 
                 <h2
@@ -24,21 +31,19 @@ export default function PlanMyTripCTA() {
                         color: "#ffffff",
                     }}
                 >
-                    Tell us your trip.
+                    {t("heading").split("\n")[0]}
                     <br />
-                    We&apos;ll tell you how to spend it.
+                    {t("heading").split("\n")[1]}
                 </h2>
 
                 <p
                     className="leading-[1.75] mb-10 max-w-[46ch]"
                     style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-base)", color: "rgba(255,255,255,0.68)" }}
                 >
-                    Send us your dates, your pace, and what you care about. You&apos;ll get a
-                    real itinerary back from someone who knows the hill country — not a
-                    generated list, and not a sales pitch. Completely free.
+                    {t("description")}
                 </p>
 
-                <a
+                <Link
                     href="/plan-my-trip"
                     className="uppercase tracking-[0.16em] font-semibold"
                     style={{
@@ -50,14 +55,14 @@ export default function PlanMyTripCTA() {
                         borderRadius: "10px",
                     }}
                 >
-                    Plan My Trip — Free
-                </a>
+                    {t("cta")}
+                </Link>
 
                 <span
                     className="uppercase tracking-[0.14em] mt-5"
-                    style={{ fontFamily: "var(--font-sans)", fontSize: "0.66rem", color: "rgba(255,255,255,0.4)" }}
+                    style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "rgba(255,255,255,0.4)" }}
                 >
-                    No account needed. Reply within 24 hours.
+                    {t("note")}
                 </span>
 
             </div>

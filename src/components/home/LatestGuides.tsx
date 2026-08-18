@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 type Guide = {
     slug: string;
@@ -46,7 +46,7 @@ const GUIDES: Guide[] = [
 ];
 
 export default function LatestGuides() {
-    const t = useTranslations("Home");
+    const t = useTranslations("latestGuides");
 
     return (
         <section
@@ -59,9 +59,9 @@ export default function LatestGuides() {
                     <div className="flex flex-col items-start max-w-[520px]">
                         <span
                             className="uppercase tracking-[0.22em] font-semibold mb-4"
-                            style={{ fontFamily: "var(--font-sans)", fontSize: "0.62rem", color: "var(--color-gold)" }}
+                            style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--color-gold)" }}
                         >
-                            Travel Guides
+                            {t("eyebrow")}
                         </span>
 
                         <div
@@ -79,16 +79,16 @@ export default function LatestGuides() {
                                 color: "var(--color-ink)",
                             }}
                         >
-                            The practical side of the trip
+                            {t("heading")}
                         </h2>
                     </div>
 
                     <Link
                         href="/guides"
                         className="uppercase tracking-[0.16em] font-semibold flex items-center gap-2 whitespace-nowrap"
-                        style={{ fontFamily: "var(--font-sans)", fontSize: "0.68rem", color: "var(--color-gold)" }}
+                        style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--color-gold)" }}
                     >
-                        All Guides
+                        {t("allGuides")}
                         <span style={{ fontSize: "0.9rem", lineHeight: 1 }}>&#8594;</span>
                     </Link>
                 </div>
@@ -154,7 +154,7 @@ export default function LatestGuides() {
                             <div className="relative z-[1] flex flex-col justify-center flex-1 px-7 py-7 md:px-9 gap-3">
                                 <span
                                     className="uppercase tracking-[0.14em]"
-                                    style={{ fontFamily: "var(--font-sans)", fontSize: "0.64rem", fontWeight: 700, color: "var(--color-gold)" }}
+                                    style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: 700, color: "var(--color-gold)" }}
                                 >
                                     {guide.category}
                                 </span>
@@ -182,16 +182,16 @@ export default function LatestGuides() {
                                 <div className="flex items-center gap-3 mt-2">
                                     <span
                                         className="uppercase tracking-[0.1em]"
-                                        style={{ fontFamily: "var(--font-sans)", fontSize: "0.68rem", color: "var(--color-muted)" }}
+                                        style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--color-muted)" }}
                                     >
                                         {guide.readTime}
                                     </span>
                                     <span style={{ color: "var(--color-border)" }}>&#8226;</span>
                                     <span
                                         className="uppercase tracking-[0.16em] font-semibold flex items-center gap-1.5"
-                                        style={{ fontFamily: "var(--font-sans)", fontSize: "0.68rem", color: "var(--color-gold)" }}
+                                        style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--color-gold)" }}
                                     >
-                                        Read Guide
+                                        {t("readGuide")}
                                         <span style={{ fontSize: "0.85rem", lineHeight: 1 }}>&#8594;</span>
                                     </span>
                                 </div>

@@ -293,5 +293,11 @@
         "description": "Send us your dates, your pace, and what you care about. You'll get a real itinerary back from someone who knows the hill country — not a generated list, and not a sales pitch. Completely free.",
         "cta": "Plan My Trip — Free",
         "note": "No account needed. Reply within 24 hours."
+    },
+    "latestGuides": {
+        "eyebrow": "Travel Guides",
+        "heading": "The practical side of the trip",
+        "allGuides": "All Guides",
+        "readGuide": "Read Guide"
     }
 }

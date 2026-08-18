@@ -31,6 +31,7 @@ const PILLARS: Pillar[] = [
 
 export default function WhyTrustUs() {
     const t = useTranslations("whyTrustUs");
+
     return (
         <section
             className="py-[var(--section-gap)]"
@@ -41,7 +42,7 @@ export default function WhyTrustUs() {
                 <div className="flex flex-col items-center text-center mb-16">
                     <span
                         className="uppercase tracking-[0.22em] font-semibold mb-4"
-                        style={{ fontFamily: "var(--font-sans)", fontSize: "0.62rem", color: "var(--color-gold)" }}
+                        style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--color-gold)" }}
                     >
                         {t("eyebrow")}
                     </span>
