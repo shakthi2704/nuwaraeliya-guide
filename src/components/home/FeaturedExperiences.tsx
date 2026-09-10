@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-
+import { EXPERIENCES } from "@/lib/data/experiences";
 type Experience = {
     slug: string;
     category: string;
@@ -15,38 +15,7 @@ type Experience = {
 
 // Data shape mirrors future Supabase `experiences` table.
 // Replace with a fetch/query when DB is connected — component stays identical.
-const EXPERIENCES: Experience[] = [
-    {
-        slug: "horton-plains-worlds-end",
-        category: "Nature",
-        title: "Horton Plains & World's End",
-        description:
-            "Walk the plateau at dawn and reach the escarpment edge where the land drops 880 metres into the valley below. Best in the dry season when the mist clears by mid-morning.",
-        duration: "Half day",
-        image: "https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=800&q=80",
-        alt: "Open plateau of Horton Plains at first light",
-    },
-    {
-        slug: "pedro-tea-estate",
-        category: "Tea & Plantation",
-        title: "Pedro Tea Estate",
-        description:
-            "Follow the leaf from bush to cup inside one of the oldest working estates in the hill country. The factory tour is unhurried and the people who run it have been here for generations.",
-        duration: "2 – 3 hours",
-        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-        alt: "Terraced tea rows on a hill-country estate",
-    },
-    {
-        slug: "gregory-lake-morning",
-        category: "Relaxation",
-        title: "Gregory Lake at First Light",
-        description:
-            "A quiet walk along the colonial-era bund before the town wakes. The lake sits perfectly still in the early morning, the surrounding hills reflected in it without distortion.",
-        duration: "1 – 2 hours",
-        image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80",
-        alt: "Still lake surrounded by green hills at dawn",
-    },
-];
+
 
 export default function FeaturedExperiences() {
     const t = useTranslations("featuredExperiences");

@@ -299,5 +299,15 @@
         "heading": "The practical side of the trip",
         "allGuides": "All Guides",
         "readGuide": "Read Guide"
+    },
+    "experiencesPage": {
+        "eyebrow": "Experiences",
+        "heading": "All Experiences",
+        "subheading": "Every experience we recommend in the hill country, in one place.",
+        "viewExperience": "View Experience"
+    },
+    "experienceDetail": {
+        "backToExperiences": "Back to Experiences",
+        "durationLabel": "Duration"
     }
 }

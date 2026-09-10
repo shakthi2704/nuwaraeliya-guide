@@ -34,3 +34,16 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+# Reserved: Phase 5 Provider Dashboard
+
+This route group is intentionally empty. It is reserved for the future
+provider dashboard (Phase 5 of the product roadmap — provider SaaS).
+
+Deliberately separate from `(site)/[locale]/`:
+- Should NOT be locale-prefixed the same way public marketing pages are.
+- Will need its own layout (no public nav/footer).
+- Will need its own auth guard once built.
+
+Do not add routes here until Phase 5 work actually begins.

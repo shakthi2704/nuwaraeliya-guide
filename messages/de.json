@@ -299,5 +299,15 @@
         "heading": "Die praktische Seite der Reise",
         "allGuides": "Alle Reiseführer",
         "readGuide": "Reiseführer lesen"
+    },
+    "experiencesPage": {
+        "eyebrow": "Erlebnisse",
+        "heading": "Alle Erlebnisse",
+        "subheading": "Alle Erlebnisse, die wir im Bergland empfehlen, an einem Ort.",
+        "viewExperience": "Erlebnis ansehen"
+    },
+    "experienceDetail": {
+        "backToExperiences": "Zurück zu den Erlebnissen",
+        "durationLabel": "Dauer"
     }
 }
