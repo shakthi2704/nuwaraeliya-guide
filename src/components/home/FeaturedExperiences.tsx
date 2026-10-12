@@ -179,21 +179,14 @@ export default function FeaturedExperiences() {
                                 </div>
 
                                 {/* ── Gold CTA button — full width, bottom of card ── */}
-                                <div
-                                    className="flex items-center justify-center gap-2 mt-2 uppercase tracking-[0.18em] transition-colors duration-200 group-hover:bg-[var(--color-gold)]"
-                                    style={{
-                                        fontFamily: "var(--font-sans)",
-                                        fontSize: "var(--text-xs)",
-                                        fontWeight: 700,
-                                        color: "#0a1f12",
-                                        background: "var(--color-gold-mid)",
-                                        padding: "0.9rem 1rem",
-                                        margin: "0 1rem 1rem",
-                                        borderRadius: "6px"
-                                    }}
-                                >
-                                    {t("viewExperience")}
-                                    <span style={{ fontSize: "0.85rem", lineHeight: 1 }}>&#8594;</span>
+                                {/* ── Text link CTA ── */}
+                                <div className="px-5 pb-5">
+                                    <span
+                                        className="inline-flex items-center gap-2 uppercase tracking-[0.16em] font-semibold pb-[0.2rem] text-[var(--color-gold-mid)] border-b border-[var(--color-gold-mid)] transition-colors duration-200 group-hover:text-[var(--color-gold-pale)] group-hover:border-[var(--color-gold-pale)]"
+                                        style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)" }}
+                                    >
+                                        {t("viewExperience")} &#8594;
+                                    </span>
                                 </div>
 
                             </Link>

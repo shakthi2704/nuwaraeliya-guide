@@ -39,7 +39,7 @@ export default function SeasonalGuideStrip() {
 
                 <span
                     className="uppercase tracking-[0.22em] font-semibold block mb-4"
-                    style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "rgba(14,28,18,0.65)" }}
+                    style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "rgba(14,28,18,0.85)" }}
                 >
                     {t("eyebrow")}
                 </span>
@@ -199,7 +199,7 @@ export default function SeasonalGuideStrip() {
                         >
                             <span
                                 className="uppercase tracking-[0.14em] font-semibold"
-                                style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "rgba(14,28,18,0.6)" }}
+                                style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "rgba(14,28,18,0.85)" }}
                             >
                                 {season.range}
                             </span>

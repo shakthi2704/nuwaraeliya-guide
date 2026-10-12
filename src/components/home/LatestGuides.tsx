@@ -53,7 +53,7 @@ export default function LatestGuides() {
             className="py-[var(--section-gap)]"
             style={{ background: "var(--color-base)" }}
         >
-            <div className="w-full max-w-[1100px] mx-auto px-[clamp(1.25rem,4vw,3.5rem)]">
+            <div className="w-full max-w-[1380px] mx-auto px-[clamp(1.25rem,4vw,3.5rem)]">
 
                 <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
                     <div className="flex flex-col items-start max-w-[520px]">

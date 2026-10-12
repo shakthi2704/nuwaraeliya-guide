@@ -25,7 +25,7 @@ export default function Footer() {
     const highlights = t.raw("highlights") as string[];
 
     return (
-        <footer className="bg-[#060e08] text-white">
+        <footer className="bg-[var(--color-forest)] text-white">
             {/* Gold top rule */}
             <div
                 className="h-[1px]"
@@ -64,10 +64,10 @@ export default function Footer() {
                         </div>
 
                         <p
-                            className="italic text-white/38 leading-[1.75] max-w-[220px] mb-7"
+                            className="italic text-white/65 leading-[1.75] max-w-[240px] mb-7"
                             style={{
                                 fontFamily: "var(--font-sans)",
-                                fontSize: "0.88rem",
+                                fontSize: "var(--text-sm)",
                             }}
                         >
                             {t("tagline")}
@@ -80,7 +80,7 @@ export default function Footer() {
                             className="inline-flex items-center gap-2 text-[#25d366] border border-[rgba(37,211,102,0.22)] transition-colors duration-200 hover:border-[rgba(37,211,102,0.5)]"
                             style={{
                                 fontFamily: "var(--font-sans)",
-                                fontSize: "0.72rem",
+                                fontSize: "var(--text-xs)",
                                 fontWeight: 500,
                                 letterSpacing: "0.06em",
                                 borderRadius: "2px",
@@ -109,10 +109,10 @@ export default function Footer() {
                                 <li key={href}>
                                     <Link
                                         href={href}
-                                        className="block text-white/45 transition-colors duration-200 hover:text-[var(--color-gold-mid)]"
+                                        className="block text-white/70 transition-colors duration-200 hover:text-[var(--color-gold-mid)]"
                                         style={{
                                             fontFamily: "var(--font-sans)",
-                                            fontSize: "0.83rem",
+                                            fontSize: "var(--text-sm)",
                                         }}
                                     >
                                         {t(key)}
@@ -138,10 +138,10 @@ export default function Footer() {
                             {highlights.map((name) => (
                                 <li
                                     key={name}
-                                    className="flex items-center gap-[0.6rem] text-white/45"
+                                    className="flex items-center gap-[0.6rem] text-white/70"
                                     style={{
                                         fontFamily: "var(--font-sans)",
-                                        fontSize: "0.83rem",
+                                        fontSize: "var(--text-sm)",
                                     }}
                                 >
                                     <span className="w-1 h-1 rounded-full bg-[var(--color-gold-mid)] flex-shrink-0" />
@@ -168,10 +168,10 @@ export default function Footer() {
                                 <li key={href}>
                                     <Link
                                         href={href}
-                                        className="block text-white/45 transition-colors duration-200 hover:text-[var(--color-gold-mid)]"
+                                        className="block text-white/70 transition-colors duration-200 hover:text-[var(--color-gold-mid)]"
                                         style={{
                                             fontFamily: "var(--font-sans)",
-                                            fontSize: "0.83rem",
+                                            fontSize: "var(--text-sm)",
                                         }}
                                     >
                                         {t(key)}
@@ -183,20 +183,20 @@ export default function Footer() {
                         <div className="flex flex-col gap-2">
                             <a
                                 href="mailto:hello@nuwaraeliya.guide"
-                                className="text-white/30 transition-colors duration-200 hover:text-white/70"
+                                className="text-white/55 transition-colors duration-200 hover:text-white"
                                 style={{
                                     fontFamily: "var(--font-sans)",
-                                    fontSize: "0.78rem",
+                                    fontSize: "var(--text-xs)",
                                 }}
                             >
                                 hello@nuwaraeliya.guide
                             </a>
 
                             <span
-                                className="text-white/30"
+                                className="text-white/55"
                                 style={{
                                     fontFamily: "var(--font-sans)",
-                                    fontSize: "0.78rem",
+                                    fontSize: "var(--text-xs)",
                                 }}
                             >
                                 {t("location")}
@@ -207,23 +207,26 @@ export default function Footer() {
             </div>
 
             {/* Bottom bar */}
-            <div className="border-t border-white/6">
+            <div
+                className="border-t border-white/10"
+                style={{ background: "rgba(0,0,0,0.22)" }}
+            >
                 <div className="w-full max-w-[1380px] mx-auto px-[clamp(1.25rem,4vw,3.5rem)] py-5 flex flex-wrap items-center justify-between gap-3">
                     <p
-                        className="text-white/22"
+                        className="text-white/50"
                         style={{
                             fontFamily: "var(--font-sans)",
-                            fontSize: "0.72rem",
+                            fontSize: "var(--text-xs)",
                         }}
                     >
                         {t("copyright", { year })}
                     </p>
 
                     <p
-                        className="text-white/22"
+                        className="text-white/50"
                         style={{
                             fontFamily: "var(--font-sans)",
-                            fontSize: "0.72rem",
+                            fontSize: "var(--text-xs)",
                         }}
                     >
                         {t("madeWithCare")}

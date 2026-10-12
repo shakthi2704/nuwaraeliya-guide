@@ -38,7 +38,7 @@ export default function Hero() {
                 className="absolute inset-0"
                 style={{
                     background: `
-                        linear-gradient(to top,    rgba(6, 15, 9, 0) 0%, rgba(6,15,9,0.1) 55%, transparent 100%),
+      linear-gradient(to bottom, rgba(6,15,9,0.5) 0%, rgba(6,15,9,0.38) 45%, transparent 100%),
                         linear-gradient(to bottom, transparent 40%,  rgba(6,15,9,0.55) 70%, rgba(6,15,9,0.97) 100%)
                     `,
                 }}
@@ -64,7 +64,7 @@ export default function Hero() {
 
                     {/* "Welcome to" script */}
                     <p
-                        className="italic font-light text-[var(--color-gold-mid)] -mb-[0.1em]"
+                        className="italic font-normal text-[var(--color-gold-mid)] -mb-[0.1em]"
                         style={{ ...fadeIn(loaded, "0.35s", "16px"), fontSize: "clamp(0.95rem, 1.8vw, 1.6rem)" }}
                     >
                         {t("welcomeTo")}
@@ -76,7 +76,7 @@ export default function Hero() {
                         style={{ ...fadeIn(loaded, "0.45s", "28px"), fontSize: "clamp(3.2rem, 8vw, 11rem)" }}
                     >
                         Nuwara<br />
-                        <span style={{ WebkitTextStroke: "3px var(--color-gold)", color: "transparent" }}>
+                        <span className="text-[var(--color-gold-mid)]">
                             Eliya
                         </span>
                     </h1>
@@ -89,7 +89,7 @@ export default function Hero() {
                         <div className="max-w-[420px]">
                             <div className="w-9 h-[1.5px] bg-[var(--color-gold)] mx-auto mb-3" />
                             <p
-                                className="italic font-medium text-white/60 leading-[1.75]"
+                                className="italic font-medium text-white/85 leading-[1.75]"
                                 style={{ fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)" }}
                             >
                                 {t("tagline")}
@@ -135,7 +135,7 @@ export default function Hero() {
                                 {value}
                             </p>
                             <p
-                                className="uppercase tracking-[0.1em] text-white/38"
+                                className="uppercase tracking-[0.1em] text-white/60"
                                 style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)" }}
                             >
                                 {label}

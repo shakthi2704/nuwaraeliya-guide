@@ -66,9 +66,9 @@ export default function WhyTrustUs() {
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
                     {PILLARS.map(pillar => (
-                        <div key={pillar.mark} className="flex flex-col gap-4">
+                        <div key={pillar.mark} className="flex flex-col gap-4 pt-8 border-t border-[var(--color-border)]">
                             <span
                                 style={{
                                     fontFamily: "var(--font-display)",
