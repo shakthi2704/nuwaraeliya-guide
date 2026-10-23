@@ -309,5 +309,16 @@
     "experienceDetail": {
         "backToExperiences": "Zurück zu den Erlebnissen",
         "durationLabel": "Dauer"
+    },
+    "tripIdeasPage": {
+        "eyebrow": "Reiseideen",
+        "heading": "Alle Reiseideen",
+        "subheading": "Komplette Reiserouten statt einer Liste, die Sie selbst sortieren müssen. Wählen Sie die, die Ihrer Reise am nächsten kommt, und passen Sie sie an.",
+        "viewItinerary": "Reiseverlauf ansehen"
+    },
+    "tripIdeaDetail": {
+        "backToTripIdeas": "Zurück zu den Reiseideen",
+        "day": "Tag",
+        "highlightsLabel": "Das umfasst diese Reise"
     }
 }

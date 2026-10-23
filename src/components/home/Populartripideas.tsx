@@ -1,51 +1,43 @@
 "use client";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { TRIP_IDEAS, type TripIdea } from "@/lib/data/trip-ideas";
 
-type TripIdea = {
-    slug: string;
-    duration: string;
-    title: string;
-    description: string;
-    highlights: string[];
-    image: string;
-    alt: string;
-    featured?: boolean;
-};
 
-const TRIP_IDEAS: TripIdea[] = [
-    {
-        slug: "week-in-the-hills",
-        duration: "7 Days",
-        title: "A Week in the Hills",
-        description:
-            "The unhurried version. Enough time to actually settle into the pace of the hill country — tea estates in the morning, the plateau at dawn, long lunches, and evenings that end early because the air turns cold. Built for people who would rather do four things well than ten things quickly.",
-        highlights: ["Horton Plains & World's End", "Pedro Tea Estate", "Gregory Lake at First Light"],
-        image: "https://images.unsplash.com/photo-1748753778598-2e5c4244e90e?w=1200&q=80",
-        alt: "Winding road through misty tea plantation hills",
-        featured: true,
-    },
-    {
-        slug: "three-days-as-a-couple",
-        duration: "3 Days",
-        title: "3 Days as a Couple",
-        description:
-            "A short, quiet trip built around slow mornings and one good view. Less itinerary, more mood.",
-        highlights: ["Gregory Lake at First Light", "Pedro Tea Estate"],
-        image: "https://images.unsplash.com/photo-1741217529666-10911b02fb1b?w=800&q=80",
-        alt: "Couple silhouetted together at sunset",
-    },
-    {
-        slug: "the-long-weekend",
-        duration: "2 Days",
-        title: "The Long Weekend",
-        description:
-            "For when you can only get away for two days but still want it to feel like a proper trip, not a rushed detour.",
-        highlights: ["Horton Plains & World's End", "Gregory Lake at First Light"],
-        image: "https://images.unsplash.com/photo-1680237659901-29f8d39ff290?w=800&q=80",
-        alt: "Aerial view of rolling green hills under a cloudy sky",
-    },
-];
+
+// const TRIP_IDEAS: TripIdea[] = [
+//     {
+//         slug: "week-in-the-hills",
+//         duration: "7 Days",
+//         title: "A Week in the Hills",
+//         description:
+//             "The unhurried version. Enough time to actually settle into the pace of the hill country — tea estates in the morning, the plateau at dawn, long lunches, and evenings that end early because the air turns cold. Built for people who would rather do four things well than ten things quickly.",
+//         highlights: ["Horton Plains & World's End", "Pedro Tea Estate", "Gregory Lake at First Light"],
+//         image: "https://images.unsplash.com/photo-1748753778598-2e5c4244e90e?w=1200&q=80",
+//         alt: "Winding road through misty tea plantation hills",
+//         featured: true,
+//     },
+//     {
+//         slug: "three-days-as-a-couple",
+//         duration: "3 Days",
+//         title: "3 Days as a Couple",
+//         description:
+//             "A short, quiet trip built around slow mornings and one good view. Less itinerary, more mood.",
+//         highlights: ["Gregory Lake at First Light", "Pedro Tea Estate"],
+//         image: "https://images.unsplash.com/photo-1741217529666-10911b02fb1b?w=800&q=80",
+//         alt: "Couple silhouetted together at sunset",
+//     },
+//     {
+//         slug: "the-long-weekend",
+//         duration: "2 Days",
+//         title: "The Long Weekend",
+//         description:
+//             "For when you can only get away for two days but still want it to feel like a proper trip, not a rushed detour.",
+//         highlights: ["Horton Plains & World's End", "Gregory Lake at First Light"],
+//         image: "https://images.unsplash.com/photo-1680237659901-29f8d39ff290?w=800&q=80",
+//         alt: "Aerial view of rolling green hills under a cloudy sky",
+//     },
+// ];
 
 export default function PopularTripIdeas() {
     const t = useTranslations("popularTripIdeas");

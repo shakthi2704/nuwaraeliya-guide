@@ -309,5 +309,16 @@
     "experienceDetail": {
         "backToExperiences": "Back to Experiences",
         "durationLabel": "Duration"
+    },
+    "tripIdeasPage": {
+        "eyebrow": "Trip Ideas",
+        "heading": "All Trip Ideas",
+        "subheading": "Whole itineraries, not a list of things to sort through yourself. Pick the one closest to your trip and adjust from there.",
+        "viewItinerary": "View Itinerary"
+    },
+    "tripIdeaDetail": {
+        "backToTripIdeas": "Back to Trip Ideas",
+        "day": "Day",
+        "highlightsLabel": "What this trip covers"
     }
 }
