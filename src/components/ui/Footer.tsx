@@ -61,7 +61,7 @@ const EXPLORE = [
 
 const PRACTICAL = [
     { key: "bestTimeToVisit", href: "/guides/best-time-to-visit" },
-    { key: "gettingThere", href: "/guides/getting-there" },
+    { key: "gettingThere", href: "/guides/getting-to-nuwara-eliya" },
     { key: "weatherGuide", href: "/guides/weather" },
     { key: "localTips", href: "/guides/local-tips" },
 ] as const;

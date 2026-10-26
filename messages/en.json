@@ -320,5 +320,14 @@
         "backToTripIdeas": "Back to Trip Ideas",
         "day": "Day",
         "highlightsLabel": "What this trip covers"
+    },
+    "guidesPage": {
+        "eyebrow": "Travel Guides",
+        "heading": "All Guides",
+        "subheading": "The practical side of the trip, written by people who know the hill country.",
+        "readGuide": "Read Guide"
+    },
+    "guideDetail": {
+        "backToGuides": "Back to Guides"
     }
 }

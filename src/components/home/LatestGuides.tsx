@@ -1,49 +1,53 @@
 "use client";
+"use client";
 
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
-type Guide = {
-    slug: string;
-    category: string;
-    title: string;
-    excerpt: string;
-    readTime: string;
-    image: string;
-    alt: string;
-};
+import { GUIDES } from "@/lib/data/guides";
 
-const GUIDES: Guide[] = [
-    {
-        slug: "getting-to-nuwara-eliya",
-        category: "Getting There",
-        title: "The Real Way to Get to Nuwara Eliya",
-        excerpt:
-            "Train, private car, or the public bus everyone warns you about — what each one actually costs, how long it really takes, and which one we'd pick.",
-        readTime: "6 min read",
-        image: "https://images.unsplash.com/photo-1771044682184-1b60ace4a7fa?w=900&q=80",
-        alt: "Train crossing a lush green viaduct bridge in Sri Lanka",
-    },
-    {
-        slug: "where-to-stay",
-        category: "Practical Info",
-        title: "Where to Stay, by Type of Trip",
-        excerpt:
-            "Colonial bungalows, working tea estates, and modern guesthouses — matched to who you're traveling with, not just star ratings.",
-        readTime: "8 min read",
-        image: "https://images.unsplash.com/photo-1758390286386-87c9d78cf9be?w=900&q=80",
-        alt: "Lush green tea plantation on a hillside",
-    },
-    {
-        slug: "what-to-pack",
-        category: "Before You Go",
-        title: "What to Actually Pack for the Cold",
-        excerpt:
-            "It's Sri Lanka, but it's 16°C and misty most mornings. What you genuinely need, and what every packing list gets wrong about it.",
-        readTime: "4 min read",
-        image: "https://images.unsplash.com/photo-1641642231157-0849081598a2?w=900&q=80",
-        alt: "A stack of warm sweaters folded on a chair",
-    },
-];
+
+// type Guide = {
+//     slug: string;
+//     category: string;
+//     title: string;
+//     excerpt: string;
+//     readTime: string;
+//     image: string;
+//     alt: string;
+// };
+
+// const GUIDES: Guide[] = [
+//     {
+//         slug: "getting-to-nuwara-eliya",
+//         category: "Getting There",
+//         title: "The Real Way to Get to Nuwara Eliya",
+//         excerpt:
+//             "Train, private car, or the public bus everyone warns you about — what each one actually costs, how long it really takes, and which one we'd pick.",
+//         readTime: "6 min read",
+//         image: "https://images.unsplash.com/photo-1771044682184-1b60ace4a7fa?w=900&q=80",
+//         alt: "Train crossing a lush green viaduct bridge in Sri Lanka",
+//     },
+//     {
+//         slug: "where-to-stay",
+//         category: "Practical Info",
+//         title: "Where to Stay, by Type of Trip",
+//         excerpt:
+//             "Colonial bungalows, working tea estates, and modern guesthouses — matched to who you're traveling with, not just star ratings.",
+//         readTime: "8 min read",
+//         image: "https://images.unsplash.com/photo-1758390286386-87c9d78cf9be?w=900&q=80",
+//         alt: "Lush green tea plantation on a hillside",
+//     },
+//     {
+//         slug: "what-to-pack",
+//         category: "Before You Go",
+//         title: "What to Actually Pack for the Cold",
+//         excerpt:
+//             "It's Sri Lanka, but it's 16°C and misty most mornings. What you genuinely need, and what every packing list gets wrong about it.",
+//         readTime: "4 min read",
+//         image: "https://images.unsplash.com/photo-1641642231157-0849081598a2?w=900&q=80",
+//         alt: "A stack of warm sweaters folded on a chair",
+//     },
+// ];
 
 export default function LatestGuides() {
     const t = useTranslations("latestGuides");
@@ -94,7 +98,7 @@ export default function LatestGuides() {
                 </div>
 
                 <div className="flex flex-col gap-8">
-                    {GUIDES.map((guide, i) => (
+                    {GUIDES.slice(0, 3).map((guide, i) => (
                         <Link
                             key={guide.slug}
                             href={`/guides/${guide.slug}`}

@@ -320,5 +320,14 @@
         "backToTripIdeas": "Zurück zu den Reiseideen",
         "day": "Tag",
         "highlightsLabel": "Das umfasst diese Reise"
+    },
+    "guidesPage": {
+        "eyebrow": "Reiseführer",
+        "heading": "Alle Ratgeber",
+        "subheading": "Die praktische Seite der Reise, geschrieben von Menschen, die das Hochland kennen.",
+        "readGuide": "Ratgeber lesen"
+    },
+    "guideDetail": {
+        "backToGuides": "Zurück zu den Ratgebern"
     }
 }
