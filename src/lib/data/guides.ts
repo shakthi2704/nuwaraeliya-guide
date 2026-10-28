@@ -49,7 +49,7 @@ export const GUIDES: Guide[] = [
         body:
             "Most packing lists for Sri Lanka assume heat. Nuwara Eliya does not. Mornings and evenings are properly cold, and the plateau at dawn is colder still, so the mistake most visitors make is packing for the beach and arriving in the hills with nothing warm.\n\nThe core of what you need is layers: a fleece or light insulated jacket, a few long-sleeved tops, and long trousers. You will wear the jacket early and late and take it off by midday, so choose something that packs down small.\n\nA waterproof jacket is worth more than an umbrella. Mist and short showers are common, and you will want your hands free on walks. Closed shoes with decent grip matter on wet tea-estate paths and on the Horton Plains circuit.\n\nDo not forget sun protection. At altitude the sun is strong even when it feels cool, so a hat and sunscreen belong in the bag alongside the warm layers.\n\nWhat you can leave at home: heavy winter coats, and anything formal. The dress code in the hills is relaxed, and warmth matters more than polish.",
         readTime: "4 min read",
-        image: "https://images.unsplash.com/photo-1641642231157-0849081598a2?w=900&q=80",
+        image: "https://images.unsplash.com/photo-1758390286386-87c9d78cf9be?w=900&q=80",
         alt: "A stack of warm sweaters folded on a chair",
     },
     {
@@ -61,7 +61,7 @@ export const GUIDES: Guide[] = [
         body:
             "Nuwara Eliya is a year-round destination, but the months are not equal, and the best one depends on what you want from the trip.\n\nThe dry season, roughly December to March, is the most reliable time for clear views and for Horton Plains, where the morning mist is most likely to lift in time to see World's End. If the plateau is the main reason you are coming, this is the window to aim for.\n\nApril is the busiest month. The town fills up for the April season, with horse racing and plenty of visitors from across the country. It is lively and fun, but accommodation books early and prices rise, so it suits you only if you want that atmosphere.\n\nThrough the middle of the year the hills turn misty and wet. It is quieter and very green, and the tea country looks its best, but you should expect cloud and rain and plan indoor alternatives.\n\nThe shoulder months around October, November and May sit between the extremes. You can get good days and wet ones in the same week, so they reward flexible travelers and punish rigid itineraries.",
         readTime: "5 min read",
-        image: "https://images.unsplash.com/photo-1680237659901-29f8d39ff290?w=900&q=80",
+        image: "https://images.unsplash.com/photo-1758390286386-87c9d78cf9be?w=900&q=80",
         alt: "Aerial view of rolling green hills under a cloudy sky",
     },
     {
@@ -73,7 +73,7 @@ export const GUIDES: Guide[] = [
         body:
             "The weather in Nuwara Eliya is cool by Sri Lankan standards and changes quickly. A bright morning can turn to cloud by midday and to light rain by the afternoon, so the sensible plan is to do the important thing early.\n\nTemperatures are mild during the day and drop sharply after sunset. In the coldest months, nights can fall into single digits, which surprises people who packed for the tropics.\n\nRain is possible in any month, but it is most reliable in the middle of the year and again around the inter-monsoon months. Short showers are more common than long storms, so it is rarely worth cancelling a day outright.\n\nForecast apps are a rough guide at best in the hills, because conditions vary from valley to valley. A better habit is to check the sky at breakfast, start early, and keep the afternoon flexible.\n\nThe practical rule: plan outdoor activities for the morning, keep a waterproof layer in your bag, and treat the afternoon as spare time rather than scheduled time.",
         readTime: "4 min read",
-        image: "https://images.unsplash.com/photo-1748753778598-2e5c4244e90e?w=900&q=80",
+        image: "https://images.unsplash.com/photo-1758390286386-87c9d78cf9be?w=900&q=80",
         alt: "Winding road through misty tea plantation hills",
     },
     {
@@ -85,7 +85,7 @@ export const GUIDES: Guide[] = [
         body:
             "A few small habits make a trip to the hills noticeably easier, and most of them are things locals do without thinking.\n\nStart early. The best parts of the day here are the first hours, when the air is clear and the crowds have not arrived. Horton Plains in particular rewards an early start, and the lake is at its best at first light.\n\nAgree the price before you ride. For tuk-tuks and taxis, settle the fare before you set off rather than after, and ask your hotel what a normal fare looks like so you have a reference.\n\nCarry some cash. Smaller shops, cafes and local transport often do not take cards, so keep a modest amount of local currency with you, particularly on day trips out of town.\n\nDo not over-schedule. The roads are slow and the weather changes, so a plan with one main activity a day almost always works better than a plan with three.\n\nAsk about heating and hot water. Many visitors are surprised by how cold the evenings are, and not every room is set up for it, so check before you book.",
         readTime: "5 min read",
-        image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=900&q=80",
+        image: "https://images.unsplash.com/photo-1758390286386-87c9d78cf9be?w=900&q=80",
         alt: "Still lake surrounded by green hills at dawn",
     },
 ];

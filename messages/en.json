@@ -12,33 +12,26 @@
         "closeMenu": "Close menu"
     },
     "footer": {
-        "logoTitle": "Nuwara Eliya",
-        "logoSubtitle": "Guide",
-        "tagline": "The hill country, properly explored. Honest advice from locals — not an agency.",
-        "whatsappUs": "WhatsApp Us",
+        "logoTitle": "Nuwara Insider",
+        "tagline": "Discover Nuwara Eliya like a local. Plan a trip that feels like yours.",
+        "description": "Curated journeys through misty tea country, high-elevation botanical trails and quiet colonial architecture in Sri Lanka’s historic hill station.",
         "exploreHeading": "Explore",
-        "topHighlightsHeading": "Top Highlights",
-        "practicalInfoHeading": "Practical Info",
+        "practicalInfoHeading": "Practical Information",
+        "connectHeading": "Local Assistance & Connect",
         "experiences": "Experiences",
         "tripIdeas": "Trip Ideas",
         "guides": "Travel Guides",
         "planTrip": "Plan My Trip",
         "about": "About",
-        "highlights": [
-            "Horton Plains & World's End",
-            "Gregory Lake",
-            "Victoria Park",
-            "Hakgala Botanical Garden",
-            "Single Tree Hill",
-            "Nuwara Eliya Race Course"
-        ],
-        "bestTimeToVisit": "Best Time to Visit",
         "gettingThere": "Getting There",
-        "weatherGuide": "Weather Guide",
+        "weatherGuide": "Weather & Seasons",
+        "bestTimeToVisit": "Best Time to Visit",
         "localTips": "Local Tips",
-        "location": "Nuwara Eliya, Sri Lanka",
-        "copyright": "© {year} Nuwara Eliya Guide. All rights reserved.",
-        "madeWithCare": "Made with care in Sri Lanka"
+        "askInsider": "Ask an Insider",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "copyright": "© {year} Nuwara Insider. Dedicated to authentic Ceylon highland exploration.",
+        "region": "Little England, Sri Lanka"
     },
     "hero": {
         "locationTag": "Sri Lanka · Hill Country · Est. 1846",
@@ -87,6 +80,10 @@
         "subheading": "Not a checklist. A considered set of ways to spend your time in the hill country.",
         "viewExperience": "View Experience",
         "browseAll": "Browse all experiences",
+        "elevation": "{value} m elevation",
+        "bestFor": "Best for",
+        "effortLabel": "Effort",
+        "explore": "Explore",
         "items": [
             {
                 "slug": "horton-plains-worlds-end",
@@ -119,6 +116,10 @@
         "heading": "Trips that already make sense",
         "subheading": "Whole itineraries, not a list of things to sort through yourself. Pick the one closest to your trip and adjust from there.",
         "viewItinerary": "View Itinerary →",
+        "customItinerary": "Create a custom itinerary",
+        "customize": "Customize in planner",
+        "moreDays": "+{count} more days",
+        "experiencesCount": "{count, plural, one {# experience} other {# experiences}}",
         "items": [
             {
                 "slug": "week-in-the-hills",
@@ -163,6 +164,7 @@
         "intro": "Nuwara Eliya sits at 1,868m — it stays cool year-round, but the dry season (December to March) is when the hills are at their most magical.",
         "nowBadge": "Now",
         "currentlyLabel": "Currently — {month}",
+        "cta": "Plan around these months",
         "ratings": {
             "best": "Best",
             "good": "Good",
@@ -267,54 +269,143 @@
         ]
     },
     "whyTrustUs": {
-        "eyebrow": "Why Trust Us",
-        "heading": "Not an agency. Not a booking site.",
+        "eyebrow": "The Resident Perspective",
+        "heading": "Travel designed for the high country.",
+        "intro": "Highland Sri Lanka rewards deliberate travelers who know when the mist falls and how mountain distances actually feel.",
         "pillars": [
             {
-                "mark": "01",
-                "title": "Written by people who live here",
-                "description": "Not scraped from other sites, not outsourced, not written once and left to go stale. Every guide comes from someone who actually knows the hill country."
+                "mark": "01 / Terrain Dynamics",
+                "title": "Elevation & Pacing",
+                "description": "At nearly 1,900 meters, mountain roads turn 20 kilometers into a 60-minute journey. We structure schedules to protect you from car fatigue."
             },
             {
-                "mark": "02",
-                "title": "No bookings, no commissions",
-                "description": "We don't sell rooms or tours, so the advice doesn't change depending on who pays us. If something isn't worth your time, we'll say so."
+                "mark": "02 / Meteorology",
+                "title": "Microclimate Timing",
+                "description": "Nuwara Eliya shifts from sparkling blue morning skies to drifting mist by early afternoon. We orient walks to catch panoramic views before the cloud rolls in."
             },
             {
-                "mark": "03",
-                "title": "Actually kept up to date",
-                "description": "Most travel content about this region was written once, years ago, and never revisited. Ours is checked and updated as things on the ground change."
+                "mark": "03 / Provenance",
+                "title": "Authentic Artisanry",
+                "description": "Skip the souvenir-factory gift halls. We point you to working tea estates, gardens and heritage places run by people who know them well."
+            },
+            {
+                "mark": "04 / Clarity",
+                "title": "Curation Over Quantity",
+                "description": "No generic lists of 100 roadside stalls. Every recommendation is handpicked, regularly reviewed, and matched to how you like to travel."
             }
         ]
     },
     "planMyTripCTA": {
-        "eyebrow": "Plan My Trip",
-        "heading": "Tell us your trip.\nWe'll tell you how to spend it.",
-        "description": "Send us your dates, your pace, and what you care about. You'll get a real itinerary back from someone who knows the hill country — not a generated list, and not a sales pitch. Completely free.",
-        "cta": "Plan My Trip — Free",
-        "note": "No account needed. Reply within 24 hours."
+        "badge": "Free trip planner",
+        "heading": "Let’s build an itinerary tailored to your rhythm.",
+        "description": "Answer a few questions about your pace, who you are traveling with, and what you want from the highlands. We will build a realistic day-by-day plan around real mountain driving times.",
+        "points": [
+            "No rigid schedules",
+            "Realistic mountain driving times",
+            "Free, with no sign-up"
+        ],
+        "cta": "Start the trip planner",
+        "note": "No account or credit card needed."
     },
     "latestGuides": {
-        "eyebrow": "Travel Guides",
-        "heading": "The practical side of the trip",
-        "allGuides": "All Guides",
+        "eyebrow": "From the Journal",
+        "heading": "Latest Highland Stories & Guides",
+        "allGuides": "Browse All Stories",
         "readGuide": "Read Guide"
     },
     "experiencesPage": {
         "eyebrow": "Experiences",
         "heading": "All Experiences",
         "subheading": "Every experience we recommend in the hill country, in one place.",
-        "viewExperience": "View Experience"
+        "viewExperience": "View Experience",
+        "savedCount": "{count} saved to your trip",
+        "openPlanner": "Open Planner",
+        "filtersLabel": "Filter experiences",
+        "allExperiences": "All experiences",
+        "effortLabel": "Filter by effort:",
+        "emptyHeading": "No experiences match these filters",
+        "emptyText": "Try a different category or effort level.",
+        "clearFilters": "Clear filters",
+        "crumbSection": "Field Guide",
+        "crumbPlace": "Nuwara Eliya & Highlands",
+        "count": "{count, plural, one {# experience} other {# experiences}}",
+        "headingLead": "Find your kind of",
+        "headingAccent": "highland experience.",
+        "lead": "Every experience here comes with realistic pacing, timing and effort, so you can see what a day actually looks like before you plan it.",
+        "ctaHeading": "Planning a trip around these experiences?",
+        "ctaText": "Combine your favourites into a sensible day-by-day plan that respects hill-country distances.",
+        "ctaPrimary": "Start customizing in the Trip Planner",
+        "ctaSecondary": "Browse trip ideas"
     },
     "experienceDetail": {
         "backToExperiences": "Back to Experiences",
-        "durationLabel": "Duration"
+        "durationLabel": "Duration",
+        "breadcrumb": "Breadcrumb",
+        "home": "Home",
+        "experiences": "Experiences",
+        "quickFacts": "Quick facts",
+        "addToTrip": "Add to my trip",
+        "savedToTrip": "Saved to my trip",
+        "addShort": "Add to trip",
+        "savedShort": "Saved",
+        "facts": {
+            "duration": "Typical duration",
+            "effort": "Activity level",
+            "elevation": "Elevation",
+            "location": "Location",
+            "bestFor": "Best suited for"
+        },
+        "about": {
+            "eyebrow": "Overview",
+            "heading": "About this experience"
+        },
+        "expect": {
+            "eyebrow": "On the day",
+            "heading": "What to expect"
+        },
+        "notes": {
+            "eyebrow": "Practical logistics",
+            "heading": "Field notes"
+        },
+        "tip": {
+            "eyebrow": "Insider tip"
+        },
+        "plan": {
+            "eyebrow": "Itinerary builder",
+            "heading": "Make this part of your Nuwara Eliya journey",
+            "text": "Save it to your trip now and build a day plan around it later.",
+            "planAround": "Plan itinerary around this",
+            "note": "Nothing to book or pay here. Saved experiences stay in this browser."
+        },
+        "ask": {
+            "heading": "Ask an Insider",
+            "text": "Not sure how this fits your trip? Ask before you plan.",
+            "cta": "Request Local Assistance"
+        },
+        "location": {
+            "eyebrow": "Location",
+            "openInMaps": "Open in Maps"
+        },
+        "nearby": {
+            "eyebrow": "Continue the day",
+            "heading": "Pairings & nearby",
+            "viewAll": "View all experiences"
+        }
     },
     "tripIdeasPage": {
         "eyebrow": "Trip Ideas",
         "heading": "All Trip Ideas",
         "subheading": "Whole itineraries, not a list of things to sort through yourself. Pick the one closest to your trip and adjust from there.",
-        "viewItinerary": "View Itinerary"
+        "viewItinerary": "View Itinerary",
+        "crumbSection": "Curated Itineraries",
+        "crumbPlace": "Nuwara Eliya & Highlands",
+        "count": "{count, plural, one {# trip idea} other {# trip ideas}}",
+        "headingLead": "Pick a trip that",
+        "headingAccent": "already makes sense.",
+        "ctaHeading": "Want to adjust a trip for your dates and style?",
+        "ctaText": "Start from any idea above and shape it around your dates, pace and interests in the planner.",
+        "ctaPrimary": "Start customizing in the Trip Planner",
+        "ctaSecondary": "Browse experiences"
     },
     "tripIdeaDetail": {
         "backToTripIdeas": "Back to Trip Ideas",
@@ -329,5 +420,42 @@
     },
     "guideDetail": {
         "backToGuides": "Back to Guides"
+    },
+    "categories": {
+        "nature": "Nature & Waterfalls",
+        "tea-plantation": "Tea & Plantations",
+        "photography": "Photography & Viewpoints",
+        "adventure": "Adventure & Hiking",
+        "relaxation": "Relaxation",
+        "food-local": "Food & Local Culture",
+        "wildlife": "Wildlife & Gardens",
+        "culture": "Culture & Heritage"
+    },
+    "effort": {
+        "easy": "Easy",
+        "moderate": "Moderate",
+        "demanding": "Demanding"
+    },
+    "essentialAdvice": {
+        "eyebrow": "Field Notes & Intelligence",
+        "heading": "Essential advice before you arrive.",
+        "intro": "Practical notes from someone who lives here, to help you pack properly and handle the highland roads comfortably.",
+        "items": {
+            "weather": {
+                "title": "The Weather Reality: Mist, Showers & Sunshine Windows",
+                "description": "Mornings are often bright, then cloud drifts in by midday and showers can follow in the afternoon. Do the important thing early and keep a waterproof layer in your bag.",
+                "cta": "Read Weather Patterns"
+            },
+            "transport": {
+                "title": "Getting Up the Hill: Train, Car or Bus",
+                "description": "The hill-country train is the scenic way up to Nanu Oya, a private car is the most flexible, and the public bus is the cheapest. Each suits a different kind of traveler.",
+                "cta": "Compare Transport Options"
+            },
+            "seasons": {
+                "title": "Best Seasons: Horton Plains and the Dry Months",
+                "description": "December to March is the most reliable window for clear mornings at World's End. April is the busiest month, and mid-year is quieter, wetter and very green.",
+                "cta": "View Seasonality Guide"
+            }
+        }
     }
 }

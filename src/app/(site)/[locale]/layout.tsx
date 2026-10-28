@@ -1,49 +1,72 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Newsreader, Plus_Jakarta_Sans } from "next/font/google";
 import "../../globals.css";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 
-
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
+/* Editorial serif for headlines. The opsz axis lets the browser pick
+   the right optical size automatically, as in the Stitch design. */
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+
+/* Interface and body text. */
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
-    default: "Nuwara Eliya Guide — The Hill Country of Sri Lanka",
-    template: "%s | Nuwara Eliya Guide",
+    default: "Nuwara Insider - Plan Your Nuwara Eliya Trip",
+    template: "%s | Nuwara Insider",
   },
   description:
-    "Honest travel advice for Nuwara Eliya, Sri Lanka. Handpicked experiences, trip ideas, and local knowledge — from someone who actually lives here.",
+    "Curated experiences, realistic trip ideas and a trip planner for Nuwara Eliya, Sri Lanka - from someone who actually lives here.",
   keywords: [
     "Nuwara Eliya",
     "Sri Lanka travel",
     "things to do Nuwara Eliya",
-    "Nuwara Eliya guide",
+    "Nuwara Eliya trip planner",
     "hill country Sri Lanka",
     "tea country Sri Lanka",
     "Horton Plains",
     "World's End Sri Lanka",
   ],
   openGraph: {
-    title: "Nuwara Eliya Guide",
-    description: "The hill country, properly explored.",
+    title: "Nuwara Insider",
+    description: "Your Nuwara Eliya trip, thoughtfully planned.",
     url: "https://nuwaraeliyaguide.com",
-    siteName: "Nuwara Eliya Guide",
+    siteName: "Nuwara Insider",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nuwara Eliya Guide",
-    description: "The hill country, properly explored.",
+    title: "Nuwara Insider",
+    description: "Your Nuwara Eliya trip, thoughtfully planned.",
   },
+};
+
+/* Tints the mobile browser bar to match the page background. */
+export const viewport: Viewport = {
+  themeColor: "#f4fbf5",
 };
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
+
 export default async function RootLayout({
   children,
   params,
@@ -58,23 +81,19 @@ export default async function RootLayout({
   }
 
   const messages = await getMessages();
+
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html
+      lang={locale}
+      className={`${newsreader.variable} ${jakarta.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         <NextIntlClientProvider messages={messages}>
           <Navbar />
-          <main>{children}</main>
+          <main className="pt-20">{children}</main>
           <Footer />
         </NextIntlClientProvider>
-
       </body>
     </html>
   );

@@ -1,150 +1,134 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import Image from "next/image";
+import { ArrowDown, CalendarDays, Leaf } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { ButtonLink } from "@/components/ui/Button";
+import { cn } from "@/lib/utils";
 
-// Entrance animation — Tailwind cannot express JS-driven opacity/transform,
-// so these two properties stay as inline styles on each staggered element.
-function fadeIn(loaded: boolean, delay: string, dy = "20px") {
-    return {
-        opacity: loaded ? 1 : 0,
-        transform: loaded ? "translateY(0)" : `translateY(${dy})`,
-        transition: `opacity 0.6s ease ${delay}, transform 0.6s ease ${delay}`,
-    };
-}
+/* One orchestrated entrance: each element fades up in sequence.
+   Pure CSS (no client state), and switched off for reduced motion. */
+const enter =
+    "opacity-0 animate-fade-up motion-reduce:animate-none motion-reduce:opacity-100";
 
 export default function Hero() {
     const t = useTranslations("hero");
     const stats = t.raw("stats") as { value: string; label: string }[];
-    const [loaded, setLoaded] = useState(false);
-
-    useEffect(() => {
-        const timer = setTimeout(() => setLoaded(true), 80);
-        return () => clearTimeout(timer);
-    }, []);
 
     return (
-        <section className="relative w-full h-[100vh] min-h-[600px] overflow-hidden bg-[#060f09]">
-
-            {/* Background image */}
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-[0.82]"
-                style={{ backgroundImage: "url('/images/03.jpg')", backgroundPosition: "center 55%" }}
+        /* -mt-20 slides the hero under the fixed 5rem header (main has pt-20) */
+        <section className="relative isolate -mt-20 flex min-h-[max(100svh,40rem)] w-full flex-col overflow-hidden bg-primary-container text-on-primary">
+            {/* Photograph */}
+            <Image
+                src="/images/03.jpg"
+                alt=""
+                fill
+                sizes="100vw"
+                loading="eager"
+                fetchPriority="high"
+                className="-z-20 object-cover object-[center_55%]"
             />
 
-            {/* Gradient overlay — two layers, cannot be expressed as single Tailwind class */}
-            <div
-                className="absolute inset-0"
-                style={{
-                    background: `
-      linear-gradient(to bottom, rgba(6,15,9,0.5) 0%, rgba(6,15,9,0.38) 45%, transparent 100%),
-                        linear-gradient(to bottom, transparent 40%,  rgba(6,15,9,0.55) 70%, rgba(6,15,9,0.97) 100%)
-                    `,
-                }}
-            />
+            {/* Scrim: forest green, heavier at the bottom where the stats sit */}
+            <div className="absolute inset-0 -z-10 bg-linear-to-b from-primary-container/70 via-primary-container/40 to-primary-container/95" />
 
             {/* Centered content */}
-            <div className="absolute inset-0 z-[2] flex items-center justify-center px-6">
-                <div className="w-full text-center" style={{ maxWidth: "min(900px, 85vw)" }}>
-
-                    {/* Location tag */}
+            <div className="flex flex-1 items-center justify-center px-margin pb-12 pt-32 md:px-margin-md lg:px-margin-lg">
+                <div className="flex w-full max-w-4xl flex-col items-center text-center">
                     <div
-                        className="flex items-center justify-center gap-[0.6rem] mb-5"
-                        style={fadeIn(loaded, "0.25s", "12px")}
+                        className={cn(
+                            enter,
+                            "mb-6 inline-flex items-center gap-2 rounded-full bg-surface-container-lowest/15 px-3.5 py-1.5 text-primary-fixed shadow-sm backdrop-blur-md"
+                        )}
+                        style={{ animationDelay: "0.2s" }}
                     >
-                        <span className="w-[5px] h-[5px] rounded-full bg-[var(--color-gold)] flex-shrink-0" />
-                        <span
-                            className="uppercase tracking-[0.22em] text-white/98"
-                            style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: 500 }}
-                        >
+                        <Leaf className="size-4 text-tertiary-fixed-dim" />
+                        <span className="font-sans text-label-md uppercase tracking-wider">
                             {t("locationTag")}
                         </span>
                     </div>
 
-                    {/* "Welcome to" script */}
                     <p
-                        className="italic font-normal text-[var(--color-gold-mid)] -mb-[0.1em]"
-                        style={{ ...fadeIn(loaded, "0.35s", "16px"), fontSize: "clamp(0.95rem, 1.8vw, 1.6rem)" }}
+                        className={cn(
+                            enter,
+                            "font-display text-body-xl italic text-tertiary-fixed-dim"
+                        )}
+                        style={{ animationDelay: "0.3s" }}
                     >
                         {t("welcomeTo")}
                     </p>
 
-                    {/* Main heading */}
                     <h1
-                        className="text-white font-black leading-[0.9] tracking-[-0.045em] mb-0"
-                        style={{ ...fadeIn(loaded, "0.45s", "28px"), fontSize: "clamp(3.2rem, 8vw, 11rem)" }}
+                        className={cn(
+                            enter,
+                            "font-display text-[length:clamp(3.5rem,9vw,8rem)] font-normal leading-[0.95] tracking-[-0.03em] text-on-primary drop-shadow-sm"
+                        )}
+                        style={{ animationDelay: "0.4s" }}
                     >
-                        Nuwara<br />
-                        <span className="text-[var(--color-gold-mid)]">
-                            Eliya
-                        </span>
+                        Nuwara
+                        <br />
+                        <span className="italic text-secondary-fixed">Eliya</span>
                     </h1>
 
-                    {/* Tagline + buttons */}
-                    <div
-                        className="flex flex-col items-center gap-6 mt-10"
-                        style={fadeIn(loaded, "0.6s")}
+                    <p
+                        className={cn(
+                            enter,
+                            "mt-8 max-w-xl font-display text-body-xl text-surface-container-high"
+                        )}
+                        style={{ animationDelay: "0.55s" }}
                     >
-                        <div className="max-w-[420px]">
-                            <div className="w-9 h-[1.5px] bg-[var(--color-gold)] mx-auto mb-3" />
-                            <p
-                                className="italic font-medium text-white/85 leading-[1.75]"
-                                style={{ fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)" }}
-                            >
-                                {t("tagline")}
-                            </p>
-                        </div>
+                        {t("tagline")}
+                    </p>
 
-                        <div className="flex flex-wrap gap-3 justify-center">
-                            <ButtonLink href="/plan-my-trip" variant="gold" size="md">
-                                {t("ctaPlanTrip")}
-                            </ButtonLink>
-                            <ButtonLink href="/experiences" variant="glass" size="md">
-                                {t("ctaExplorePlaces")}
-                            </ButtonLink>
-                        </div>
+                    <div
+                        className={cn(
+                            enter,
+                            "mt-10 flex flex-wrap items-center justify-center gap-4"
+                        )}
+                        style={{ animationDelay: "0.7s" }}
+                    >
+                        <ButtonLink href="/plan-my-trip" variant="accent" size="lg">
+                            {t("ctaPlanTrip")}
+                            <CalendarDays className="size-[18px]" />
+                        </ButtonLink>
+                        <ButtonLink href="/experiences" variant="light" size="lg">
+                            {t("ctaExplorePlaces")}
+                            <ArrowDown className="size-[18px] text-secondary" />
+                        </ButtonLink>
                     </div>
-
                 </div>
             </div>
 
             {/* Stats bar */}
             <div
-                className="absolute bottom-0 left-0 right-0 z-[3] backdrop-blur-xl border-t border-[rgba(201,165,90,0.18)] border-b-2 border-b-[rgba(201,165,90,0.25)]"
-                style={{
-                    ...fadeIn(loaded, "0.85s", "16px"),
-                    background: "rgba(6,15,9,0.82)",
-                }}
+                className={cn(
+                    enter,
+                    "border-t border-on-primary/10 bg-primary-container/80 backdrop-blur-xl"
+                )}
+                style={{ animationDelay: "0.9s" }}
             >
-                <div className="grid justify-center mx-auto max-w-[900px]"
-                    style={{ gridTemplateColumns: "repeat(4, minmax(0, 220px))" }}
-                >
+                <dl className="mx-auto grid max-w-[90rem] grid-cols-2 px-margin md:grid-cols-4 md:px-margin-md lg:px-margin-lg">
                     {stats.map(({ value, label }, i) => (
                         <div
                             key={label}
-                            className={[
+                            className={cn(
                                 "py-5 text-center",
-                                i < 3 ? "border-r border-white/6" : "",
-                            ].join(" ")}
+                                i < stats.length - 1 &&
+                                "md:border-r md:border-on-primary/10"
+                            )}
                         >
-                            <p
-                                className="font-bold text-[var(--color-gold)]"
-                                style={{ fontSize: "clamp(1rem, 1.5vw, 1.4rem)" }}
-                            >
+                            <dt className="sr-only">{label}</dt>
+                            <dd className="font-display text-headline-sm text-on-primary">
                                 {value}
-                            </p>
+                            </dd>
                             <p
-                                className="uppercase tracking-[0.1em] text-white/60"
-                                style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)" }}
+                                aria-hidden="true"
+                                className="mt-0.5 font-sans text-caption uppercase tracking-widest text-primary-fixed-dim"
                             >
                                 {label}
                             </p>
                         </div>
                     ))}
-                </div>
+                </dl>
             </div>
-
         </section>
     );
 }

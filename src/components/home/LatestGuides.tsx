@@ -1,209 +1,88 @@
-"use client";
-"use client";
-
-import { Link } from "@/i18n/navigation";
+import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { GUIDES } from "@/lib/data/guides";
+import { Link } from "@/i18n/navigation";
+import { GUIDES, type Guide } from "@/lib/data/guides";
 
+/* Which guides the homepage shows, in this order. Chosen to avoid
+   repeating the three guides already linked from Essential advice. */
+const HOME_GUIDE_SLUGS = ["where-to-stay", "what-to-pack", "local-tips"];
 
-// type Guide = {
-//     slug: string;
-//     category: string;
-//     title: string;
-//     excerpt: string;
-//     readTime: string;
-//     image: string;
-//     alt: string;
-// };
-
-// const GUIDES: Guide[] = [
-//     {
-//         slug: "getting-to-nuwara-eliya",
-//         category: "Getting There",
-//         title: "The Real Way to Get to Nuwara Eliya",
-//         excerpt:
-//             "Train, private car, or the public bus everyone warns you about — what each one actually costs, how long it really takes, and which one we'd pick.",
-//         readTime: "6 min read",
-//         image: "https://images.unsplash.com/photo-1771044682184-1b60ace4a7fa?w=900&q=80",
-//         alt: "Train crossing a lush green viaduct bridge in Sri Lanka",
-//     },
-//     {
-//         slug: "where-to-stay",
-//         category: "Practical Info",
-//         title: "Where to Stay, by Type of Trip",
-//         excerpt:
-//             "Colonial bungalows, working tea estates, and modern guesthouses — matched to who you're traveling with, not just star ratings.",
-//         readTime: "8 min read",
-//         image: "https://images.unsplash.com/photo-1758390286386-87c9d78cf9be?w=900&q=80",
-//         alt: "Lush green tea plantation on a hillside",
-//     },
-//     {
-//         slug: "what-to-pack",
-//         category: "Before You Go",
-//         title: "What to Actually Pack for the Cold",
-//         excerpt:
-//             "It's Sri Lanka, but it's 16°C and misty most mornings. What you genuinely need, and what every packing list gets wrong about it.",
-//         readTime: "4 min read",
-//         image: "https://images.unsplash.com/photo-1641642231157-0849081598a2?w=900&q=80",
-//         alt: "A stack of warm sweaters folded on a chair",
-//     },
-// ];
+const HOME_GUIDES = HOME_GUIDE_SLUGS.map((slug) =>
+    GUIDES.find((guide) => guide.slug === slug)
+).filter((guide): guide is Guide => Boolean(guide));
 
 export default function LatestGuides() {
     const t = useTranslations("latestGuides");
 
     return (
         <section
-            className="py-[var(--section-gap)]"
-            style={{ background: "var(--color-base)" }}
+            aria-labelledby="latest-guides-heading"
+            className="w-full border-t border-surface-container-high bg-surface-container-low px-margin py-20 md:px-margin-md lg:px-margin-lg"
         >
-            <div className="w-full max-w-[1380px] mx-auto px-[clamp(1.25rem,4vw,3.5rem)]">
-
-                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
-                    <div className="flex flex-col items-start max-w-[520px]">
-                        <span
-                            className="uppercase tracking-[0.22em] font-semibold mb-4"
-                            style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--color-gold)" }}
-                        >
+            <div className="mx-auto flex max-w-7xl flex-col gap-12">
+                {/* Header */}
+                <div className="flex flex-col justify-between gap-6 border-b border-surface-container-high pb-2 md:flex-row md:items-end">
+                    <div>
+                        <span className="mb-2 block font-sans text-caption font-semibold uppercase tracking-widest text-secondary">
                             {t("eyebrow")}
                         </span>
-
-                        <div
-                            className="mb-6"
-                            style={{ width: "32px", height: "2px", background: "var(--color-gold-mid)" }}
-                        />
-
                         <h2
-                            style={{
-                                fontFamily: "var(--font-display)",
-                                fontSize: "var(--text-3xl)",
-                                fontWeight: 700,
-                                letterSpacing: "-0.03em",
-                                lineHeight: 1.05,
-                                color: "var(--color-ink)",
-                            }}
+                            id="latest-guides-heading"
+                            className="font-display text-headline-xl-mobile tracking-tight text-primary md:text-headline-xl"
                         >
                             {t("heading")}
                         </h2>
                     </div>
-
                     <Link
                         href="/guides"
-                        className="uppercase tracking-[0.16em] font-semibold flex items-center gap-2 whitespace-nowrap"
-                        style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--color-gold)" }}
+                        className="inline-flex shrink-0 items-center gap-2 font-sans text-label-lg text-secondary transition-colors hover:text-primary"
                     >
                         {t("allGuides")}
-                        <span style={{ fontSize: "0.9rem", lineHeight: 1 }}>&#8594;</span>
+                        <ArrowRight className="size-[18px]" aria-hidden="true" />
                     </Link>
                 </div>
 
-                <div className="flex flex-col gap-8">
-                    {GUIDES.slice(0, 3).map((guide, i) => (
-                        <Link
+                {/* Cards */}
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+                    {HOME_GUIDES.map((guide) => (
+                        <article
                             key={guide.slug}
-                            href={`/guides/${guide.slug}`}
-                            className="group relative flex flex-col sm:flex-row overflow-visible no-underline"
-                            style={{
-                                background: "var(--color-surface)",
-                                border: "1px solid rgba(14,28,18,0.09)",
-                                borderRadius: "10px",
-                                boxShadow: "0 2px 10px rgba(14,28,18,0.06)",
-                                transition: "transform 0.28s ease, box-shadow 0.28s ease",
-                            }}
-                            onMouseEnter={e => {
-                                const el = e.currentTarget as HTMLElement;
-                                el.style.transform = "translateY(-4px)";
-                                el.style.boxShadow = "0 24px 60px rgba(14,28,18,0.12)";
-                            }}
-                            onMouseLeave={e => {
-                                const el = e.currentTarget as HTMLElement;
-                                el.style.transform = "translateY(0)";
-                                el.style.boxShadow = "0 2px 10px rgba(14,28,18,0.06)";
-                            }}
+                            className="group relative flex flex-col gap-4 rounded-xl border border-primary/10 bg-surface-container-lowest p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-float has-[.card-link:focus-visible]:outline-2 has-[.card-link:focus-visible]:outline-offset-2 has-[.card-link:focus-visible]:outline-secondary"
                         >
-                            <span
-                                className="hidden md:block absolute select-none"
-                                style={{
-                                    top: "-1.1rem",
-                                    left: "-1rem",
-                                    fontFamily: "var(--font-display)",
-                                    fontSize: "5rem",
-                                    fontWeight: 700,
-                                    lineHeight: 1,
-                                    color: "var(--color-gold-mid)",
-                                    opacity: 0.5,
-                                    zIndex: 0,
-                                }}
-                            >
-                                {String(i + 1).padStart(2, "0")}
-                            </span>
-
-                            <div
-                                className="relative overflow-hidden flex-shrink-0"
-                                style={{
-                                    width: "100%",
-                                    maxWidth: "380px",
-                                    aspectRatio: "16/11",
-                                    borderRadius: "10px 10px 0 0",
-                                }}
-                            >
+                            {/* Photo + category badge */}
+                            <div className="relative h-56 w-full overflow-hidden rounded-lg bg-surface-container">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
                                     src={guide.image}
                                     alt={guide.alt}
                                     loading="lazy"
-                                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
-                            </div>
-
-                            <div className="relative z-[1] flex flex-col justify-center flex-1 px-7 py-7 md:px-9 gap-3">
-                                <span
-                                    className="uppercase tracking-[0.14em]"
-                                    style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: 700, color: "var(--color-gold)" }}
-                                >
+                                <span className="absolute left-3 top-3 rounded bg-surface-container-lowest/90 px-2.5 py-1 font-sans text-label-md text-on-surface backdrop-blur">
                                     {guide.category}
                                 </span>
+                            </div>
 
-                                <h3
-                                    style={{
-                                        fontFamily: "var(--font-display)",
-                                        fontSize: "var(--text-2xl)",
-                                        fontWeight: 700,
-                                        letterSpacing: "-0.02em",
-                                        lineHeight: 1.15,
-                                        color: "var(--color-ink)",
-                                    }}
+                            <p className="font-sans text-caption uppercase text-on-surface-variant">
+                                {guide.readTime}
+                            </p>
+
+                            {/* Stretched link: the whole card is clickable */}
+                            <h3 className="font-display text-headline-sm text-primary transition-colors group-hover:text-secondary">
+                                <Link
+                                    href={`/guides/${guide.slug}`}
+                                    className="card-link after:absolute after:inset-0 focus-visible:outline-none"
                                 >
                                     {guide.title}
-                                </h3>
+                                </Link>
+                            </h3>
 
-                                <p
-                                    className="leading-[1.7]"
-                                    style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--color-muted)", maxWidth: "52ch" }}
-                                >
-                                    {guide.excerpt}
-                                </p>
-
-                                <div className="flex items-center gap-3 mt-2">
-                                    <span
-                                        className="uppercase tracking-[0.1em]"
-                                        style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--color-muted)" }}
-                                    >
-                                        {guide.readTime}
-                                    </span>
-                                    <span style={{ color: "var(--color-border)" }}>&#8226;</span>
-                                    <span
-                                        className="uppercase tracking-[0.16em] font-semibold flex items-center gap-1.5"
-                                        style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--color-gold)" }}
-                                    >
-                                        {t("readGuide")}
-                                        <span style={{ fontSize: "0.85rem", lineHeight: 1 }}>&#8594;</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </Link>
+                            <p className="line-clamp-3 font-sans text-body-md text-on-surface-variant">
+                                {guide.excerpt}
+                            </p>
+                        </article>
                     ))}
                 </div>
-
             </div>
         </section>
     );

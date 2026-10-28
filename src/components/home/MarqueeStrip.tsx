@@ -23,9 +23,9 @@ export default async function MarqueeStrip() {
                 }}
             >
                 {items.map((item, index) => (
-                    <span key={index} className="inline-flex items-center">
+                    <span key={index} className="inline-flex items-center" >
                         <span
-                            className="uppercase tracking-[0.18em]"
+                            className="uppercase tracking-[0.18em] "
                             style={{
                                 fontFamily: "var(--font-sans)",
                                 fontWeight: 600,

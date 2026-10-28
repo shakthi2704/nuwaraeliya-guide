@@ -6,17 +6,19 @@ import SeasonalGuideStrip from "@/components/home/Seasonalguidestrip";
 import WhyTrustUs from "@/components/home/WhyTrustUs";
 import PlanMyTripCTA from "@/components/home/PlanMyTripCTA";
 import LatestGuides from "@/components/home/LatestGuides";
+import EssentialAdvice from "@/components/home/EssentialAdvice";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <MarqueeStrip />
+      <WhyTrustUs />
       <FeaturedExperiences />
       <PopularTripIdeas />
       <SeasonalGuideStrip />
-      <WhyTrustUs />
       <PlanMyTripCTA />
+      <EssentialAdvice />
       <LatestGuides />
     </>
   );

@@ -3,148 +3,302 @@
 @source "../components";
 
 /* ============================================================
-   DESIGN TOKENS
+   HIGHLAND EDITORIAL - DESIGN TOKENS
+
+   Values come from the tailwind config inside the Stitch screens
+   (code.html), NOT from the prose in DESIGN.md. The prose mentions
+   a warm ivory canvas (#F8F6F0); the screens actually use #f4fbf5.
+
+   Token names match Stitch on purpose, so its markup ports 1:1:
+   bg-surface, text-on-surface, font-headline-sm, text-headline-sm,
+   px-margin-lg, gap-gutter ...
    ============================================================ */
 
 @theme {
-  --font-display: "Playfair Display", Georgia, serif;
-  --font-sans: "DM Sans", system-ui, sans-serif;
+    /* ---- Colors ---- */
+    --color-background: #f4fbf5;
+    --color-on-background: #161d19;
 
-  --text-xs: clamp(0.72rem, 0.7vw, 0.82rem);
-  --text-sm: clamp(0.85rem, 0.85vw, 0.95rem);
-  --text-base: clamp(0.95rem, 1vw, 1.05rem);
-  --text-lg: clamp(1.1rem, 1.3vw, 1.3rem);
-  --text-xl: clamp(1.3rem, 1.8vw, 1.75rem);
-  --text-2xl: clamp(1.75rem, 3vw, 2.75rem);
-  --text-3xl: clamp(2.25rem, 4.5vw, 4rem);
-  --text-hero: clamp(3.5rem, 7.5vw, 7.5rem);
+    --color-surface: #f4fbf5;
+    --color-surface-bright: #f4fbf5;
+    --color-surface-dim: #d5dcd6;
+    --color-surface-variant: #dde4de;
+    --color-surface-tint: #416659;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #eef5ef;
+    --color-surface-container: #e8f0e9;
+    --color-surface-container-high: #e3eae4;
+    --color-surface-container-highest: #dde4de;
+    --color-on-surface: #161d19;
+    --color-on-surface-variant: #414845;
+    --color-inverse-surface: #2b322e;
+    --color-inverse-on-surface: #ebf3ec;
+    --color-outline: #717975;
+    --color-outline-variant: #c1c8c4;
 
-  --color-ink: #0e1c12;
-  --color-forest: #0f2318;
-  --color-green: #1a3d28;
-  --color-sage: #3a6649;
-  --color-base: #f5f0e8;
-  --color-surface: #ffffff;
-  --color-muted: #5c6b5e;
-  --color-border: #d4e0d0;
-  --color-gold: #b8924a;
-  --color-gold-mid: #c9a55a;
-  --color-gold-pale: #f0e6d0;
+    --color-primary: #00271d;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #183d32;
+    --color-on-primary-container: #81a899;
+    --color-inverse-primary: #a8cfc0;
+    --color-primary-fixed: #c3ebdb;
+    --color-primary-fixed-dim: #a8cfc0;
+    --color-on-primary-fixed: #002118;
+    --color-on-primary-fixed-variant: #294d42;
 
-  /* Reserved: semantic/functional colors — unused in marketing site,
-     for future forms and Phase 5 dashboard states. Kept in the same
-     muted, warm-leaning family as the core palette so they don't
-     clash when eventually used. */
-  --color-error: #a8503f;
-  --color-success: #5b8064;
-  --color-warning: #c17c3e;
-  --color-focus: var(--color-gold-mid);
+    --color-secondary: #2d694d;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #aeedca;
+    --color-on-secondary-container: #326e51;
+    --color-secondary-fixed: #b1f0cd;
+    --color-secondary-fixed-dim: #96d4b2;
+    --color-on-secondary-fixed: #002113;
+    --color-on-secondary-fixed-variant: #105137;
 
-  --section-gap: clamp(5rem, 9vw, 8.5rem);
-  --section-gap-sm: clamp(3rem, 5vw, 5rem);
+    --color-tertiary: #3e1400;
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #5d2607;
+    --color-on-tertiary-container: #dc8b65;
+    --color-tertiary-fixed: #ffdbcc;
+    --color-tertiary-fixed-dim: #ffb694;
+    --color-on-tertiary-fixed: #351000;
+    --color-on-tertiary-fixed-variant: #723616;
+
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-error-container: #ffdad6;
+    --color-on-error-container: #93000a;
+
+    /* ---- Font sizes (rem, converted from Stitch px) ----
+     Each size carries its own line-height, tracking and weight,
+     so `text-headline-sm` alone sets all four. */
+    --text-display-lg: 3.5rem;
+    --text-display-lg--line-height: 4rem;
+    --text-display-lg--letter-spacing: -0.02em;
+    --text-display-lg--font-weight: 400;
+
+    --text-display-lg-mobile: 2.375rem;
+    --text-display-lg-mobile--line-height: 2.875rem;
+    --text-display-lg-mobile--letter-spacing: -0.01em;
+    --text-display-lg-mobile--font-weight: 400;
+
+    --text-headline-xl: 2.5rem;
+    --text-headline-xl--line-height: 3rem;
+    --text-headline-xl--letter-spacing: -0.015em;
+    --text-headline-xl--font-weight: 400;
+
+    --text-headline-xl-mobile: 1.875rem;
+    --text-headline-xl-mobile--line-height: 2.375rem;
+    --text-headline-xl-mobile--letter-spacing: -0.01em;
+    --text-headline-xl-mobile--font-weight: 400;
+
+    --text-headline-md: 1.75rem;
+    --text-headline-md--line-height: 2.25rem;
+    --text-headline-md--font-weight: 500;
+
+    --text-headline-sm: 1.375rem;
+    --text-headline-sm--line-height: 1.875rem;
+    --text-headline-sm--font-weight: 500;
+
+    --text-body-xl: 1.25rem;
+    --text-body-xl--line-height: 2rem;
+    --text-body-xl--font-weight: 400;
+
+    --text-body-lg: 1rem;
+    --text-body-lg--line-height: 1.625rem;
+    --text-body-lg--font-weight: 400;
+
+    --text-body-md: 0.875rem;
+    --text-body-md--line-height: 1.375rem;
+    --text-body-md--font-weight: 400;
+
+    --text-label-lg: 0.875rem;
+    --text-label-lg--line-height: 1.25rem;
+    --text-label-lg--letter-spacing: 0.01em;
+    --text-label-lg--font-weight: 600;
+
+    --text-label-md: 0.75rem;
+    --text-label-md--line-height: 1rem;
+    --text-label-md--letter-spacing: 0.04em;
+    --text-label-md--font-weight: 600;
+
+    --text-caption: 0.6875rem;
+    --text-caption--line-height: 1rem;
+    --text-caption--letter-spacing: 0.02em;
+    --text-caption--font-weight: 500;
+
+    /* ---- Spacing (named, as in Stitch) ---- */
+    --spacing-space-xs: 0.25rem;
+    --spacing-space-sm: 0.5rem;
+    --spacing-space-md: 1rem;
+    --spacing-space-lg: 1.5rem;
+    --spacing-space-xl: 2.5rem;
+    --spacing-gutter-sm: 1rem;
+    --spacing-gutter: 1.5rem;
+    --spacing-gutter-lg: 2.5rem;
+    --spacing-margin: 1.5rem;
+    --spacing-margin-md: 3rem;
+    --spacing-margin-lg: 5rem;
+
+    /* ---- Shadows (forest-tinted, ultra diffused) ---- */
+    --shadow-nav: 0 1px 8px rgba(24, 61, 50, 0.06);
+    --shadow-cta: 0 2px 8px rgba(24, 61, 50, 0.12);
+    --shadow-float: 0 12px 32px -4px rgba(24, 61, 50, 0.06),
+        0 2px 6px -1px rgba(24, 61, 50, 0.03);
+    --shadow-bar: 0 -1px 12px rgba(24, 61, 50, 0.03);
+
+    /* ---- Animations (keyframes below) ---- */
+    --animate-marquee: marquee 32s linear infinite;
+    --animate-fade-up: fadeUp 0.7s ease both;
+    --animate-hero-zoom: heroZoom 10s ease-out forwards;
+
+    /* ============================================================
+     LEGACY ALIASES - TEMPORARY
+     Old component classes (text-ink, bg-forest, text-gold ...) keep
+     rendering with the new palette while we migrate file by file.
+     DELETE this whole block once the last old component is rebuilt.
+     Note: the old `bg-surface` was white; it is now minty #f4fbf5.
+     ============================================================ */
+    --color-ink: #161d19;
+    --color-forest: #00271d;
+    --color-green: #183d32;
+    --color-sage: #2d694d;
+    --color-base: #f4fbf5;
+    --color-muted: #414845;
+    --color-border: #c1c8c4;
+    --color-gold: #5d2607;
+    --color-gold-mid: #b59147;
+    --color-gold-pale: #ffdbcc;
+    --color-success: #2d694d;
+    --color-warning: #dc8b65;
+    --color-focus: #2d694d;
+    --text-hero: clamp(3.5rem, 7.5vw, 7.5rem);
+    --section-gap: clamp(5rem, 9vw, 8.5rem);
+    --section-gap-sm: clamp(3rem, 5vw, 5rem);
+}
+
+/* Font families. `inline` because the values point at CSS variables
+   that next/font creates at runtime (wired up in layout.tsx next).
+   Each var() has a literal fallback so the font stack never
+   collapses if the variable is missing. */
+@theme inline {
+    --font-display: var(--font-newsreader, "Newsreader"), Georgia, serif;
+    --font-sans: var(--font-jakarta, "Plus Jakarta Sans"), system-ui, sans-serif;
+
+    /* Stitch family keys: Newsreader roles */
+    --font-display-lg: var(--font-newsreader, "Newsreader"), Georgia, serif;
+    --font-display-lg-mobile: var(--font-newsreader, "Newsreader"), Georgia, serif;
+    --font-headline-xl: var(--font-newsreader, "Newsreader"), Georgia, serif;
+    --font-headline-xl-mobile: var(--font-newsreader, "Newsreader"), Georgia, serif;
+    --font-headline-md: var(--font-newsreader, "Newsreader"), Georgia, serif;
+    --font-headline-sm: var(--font-newsreader, "Newsreader"), Georgia, serif;
+    --font-body-xl: var(--font-newsreader, "Newsreader"), Georgia, serif;
+
+    /* Stitch family keys: Plus Jakarta Sans roles */
+    --font-body-lg: var(--font-jakarta, "Plus Jakarta Sans"), system-ui, sans-serif;
+    --font-body-md: var(--font-jakarta, "Plus Jakarta Sans"), system-ui, sans-serif;
+    --font-label-lg: var(--font-jakarta, "Plus Jakarta Sans"), system-ui, sans-serif;
+    --font-label-md: var(--font-jakarta, "Plus Jakarta Sans"), system-ui, sans-serif;
+    --font-caption: var(--font-jakarta, "Plus Jakarta Sans"), system-ui, sans-serif;
 }
 
 /* ============================================================
    BASE
+   Tailwind's preflight already resets margins, images, links and
+   buttons, so only the project defaults live here.
    ============================================================ */
 @layer base {
+    html {
+        scroll-behavior: smooth;
+        /* Clears the fixed 5rem (h-20) header on anchor jumps */
+        scroll-padding-top: 5rem;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+    body {
+        font-family: var(--font-sans);
+        background-color: var(--color-background);
+        color: var(--color-on-surface);
+        font-size: 1rem;
+        line-height: 1.625;
+    }
 
-  html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-  }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-display);
+        color: var(--color-on-surface);
+        font-weight: 400;
+        line-height: 1.2;
+        letter-spacing: -0.015em;
+    }
 
-  body {
-    font-family: var(--font-sans);
-    background-color: var(--color-base);
-    color: var(--color-ink);
-    font-size: var(--text-base);
-    line-height: 1.75;
-  }
+    button {
+        cursor: pointer;
+    }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-display);
-    color: var(--color-ink);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    font-weight: 700;
-  }
+    :focus-visible {
+        outline: 2px solid var(--color-secondary);
+        outline-offset: 2px;
+    }
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  img {
-    display: block;
-    max-width: 100%;
-  }
-
-  button {
-    cursor: pointer;
-    border: none;
-    background: none;
-    font-family: var(--font-sans);
-  }
+    ::selection {
+        background-color: var(--color-secondary-container);
+        color: var(--color-on-secondary-container);
+    }
 }
 
 /* ============================================================
    KEYFRAMES
-   Referenced by Tailwind animate-* utilities in components.
    ============================================================ */
 @keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
+    from {
+        transform: translateX(0);
+    }
 
-  to {
-    transform: translateX(-50%);
-  }
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes heroZoom {
-  from {
-    transform: scale(1);
-  }
+    from {
+        transform: scale(1);
+    }
 
-  to {
-    transform: scale(1.06);
-  }
+    to {
+        transform: scale(1.06);
+    }
 }
 
-/* ============================================================
-   CUSTOM ANIMATIONS
-   Registers keyframes as Tailwind animate-* utilities.
-   ============================================================ */
-@theme {
-  --animate-marquee: marquee 32s linear infinite;
-  --animate-fade-up: fadeUp 0.7s ease forwards;
-  --animate-hero-zoom: heroZoom 10s ease-out forwards;
+/* Respect users who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

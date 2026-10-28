@@ -1,197 +1,141 @@
-"use client";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { ButtonLink } from "@/components/ui/Button";
 import { Link } from "@/i18n/navigation";
-import { TRIP_IDEAS, type TripIdea } from "@/lib/data/trip-ideas";
+import { TRIP_IDEAS } from "@/lib/data/trip-ideas";
+import { cn } from "@/lib/utils";
 
-
-
-// const TRIP_IDEAS: TripIdea[] = [
-//     {
-//         slug: "week-in-the-hills",
-//         duration: "7 Days",
-//         title: "A Week in the Hills",
-//         description:
-//             "The unhurried version. Enough time to actually settle into the pace of the hill country — tea estates in the morning, the plateau at dawn, long lunches, and evenings that end early because the air turns cold. Built for people who would rather do four things well than ten things quickly.",
-//         highlights: ["Horton Plains & World's End", "Pedro Tea Estate", "Gregory Lake at First Light"],
-//         image: "https://images.unsplash.com/photo-1748753778598-2e5c4244e90e?w=1200&q=80",
-//         alt: "Winding road through misty tea plantation hills",
-//         featured: true,
-//     },
-//     {
-//         slug: "three-days-as-a-couple",
-//         duration: "3 Days",
-//         title: "3 Days as a Couple",
-//         description:
-//             "A short, quiet trip built around slow mornings and one good view. Less itinerary, more mood.",
-//         highlights: ["Gregory Lake at First Light", "Pedro Tea Estate"],
-//         image: "https://images.unsplash.com/photo-1741217529666-10911b02fb1b?w=800&q=80",
-//         alt: "Couple silhouetted together at sunset",
-//     },
-//     {
-//         slug: "the-long-weekend",
-//         duration: "2 Days",
-//         title: "The Long Weekend",
-//         description:
-//             "For when you can only get away for two days but still want it to feel like a proper trip, not a rushed detour.",
-//         highlights: ["Horton Plains & World's End", "Gregory Lake at First Light"],
-//         image: "https://images.unsplash.com/photo-1680237659901-29f8d39ff290?w=800&q=80",
-//         alt: "Aerial view of rolling green hills under a cloudy sky",
-//     },
-// ];
+/* A card shows this many days, then "+N more days". */
+const MAX_DAYS_SHOWN = 3;
 
 export default function PopularTripIdeas() {
     const t = useTranslations("popularTripIdeas");
-    const featured = TRIP_IDEAS.find(idea => idea.featured) ?? TRIP_IDEAS[0];
-    const rest = TRIP_IDEAS.filter(idea => idea.slug !== featured.slug);
+    const ideas = TRIP_IDEAS.slice(0, 3);
 
     return (
         <section
-            className="py-[clamp(5rem,9vw,8.5rem)]"
-            style={{ background: "var(--color-base)" }}
+            aria-labelledby="trip-ideas-heading"
+            className="w-full bg-surface-container-low px-margin py-20 md:px-margin-md lg:px-margin-lg"
         >
-            <div className="w-full max-w-[1380px] mx-auto px-[clamp(1.25rem,4vw,3.5rem)]">
-
-                <div className="flex flex-col items-start text-left mb-16 max-w-[560px]">
-                    <span
-                        className="uppercase tracking-[0.22em] font-semibold text-[var(--color-gold)] mb-4"
-                        style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)" }}
-                    >
-                        {t("eyebrow")}
-                    </span>
-
-                    <div
-                        className="mb-6"
-                        style={{ width: "32px", height: "2px", background: "var(--color-gold-mid)" }}
-                    />
-
-                    <h2
-                        className="mb-4"
-                        style={{
-                            fontFamily: "var(--font-display)",
-                            fontSize: "var(--text-3xl)",
-                            fontWeight: 700,
-                            letterSpacing: "-0.03em",
-                            lineHeight: 1.05,
-                            color: "var(--color-ink)",
-                        }}
-                    >
-                        {t("heading")}
-                    </h2>
-
-                    <p
-                        className="leading-[1.75]"
-                        style={{
-                            fontFamily: "var(--font-sans)",
-                            fontSize: "var(--text-sm)",
-                            color: "var(--color-muted)",
-                        }}
-                    >
-                        {t("subheading")}
-                    </p>
-                </div>
-
-                <div className="flex flex-col gap-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-[1.7fr_1fr] gap-6">
-                        {rest.map(idea => (
-                            <TripCard key={idea.slug} idea={idea} height="clamp(260px,28vw,340px)" />
-                        ))}
+            <div className="mx-auto flex max-w-7xl flex-col gap-12">
+                {/* Header */}
+                <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+                    <div className="max-w-2xl">
+                        <span className="mb-2 block font-sans text-caption font-semibold uppercase tracking-widest text-secondary">
+                            {t("eyebrow")}
+                        </span>
+                        <h2
+                            id="trip-ideas-heading"
+                            className="mb-3 font-display text-headline-xl-mobile tracking-tight text-primary md:text-headline-xl"
+                        >
+                            {t("heading")}
+                        </h2>
+                        <p className="font-sans text-body-lg text-on-surface-variant">
+                            {t("subheading")}
+                        </p>
                     </div>
-
-                    <TripCard idea={featured} height="clamp(320px,32vw,420px)" showHighlights />
+                    <Link
+                        href="/plan-my-trip"
+                        className="inline-flex shrink-0 items-center gap-2 font-sans text-label-lg text-secondary transition-colors hover:text-primary"
+                    >
+                        {t("customItinerary")}
+                        <ArrowUpRight className="size-[18px]" />
+                    </Link>
                 </div>
 
+                {/* Cards */}
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                    {ideas.map((idea) => {
+                        const shown = idea.days.slice(0, MAX_DAYS_SHOWN);
+                        const hidden = idea.days.length - shown.length;
+
+                        return (
+                            <article
+                                key={idea.slug}
+                                className="group relative flex flex-col overflow-hidden rounded-xl border border-primary/10 bg-surface-container-lowest shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-float has-[.card-link:focus-visible]:outline-2 has-[.card-link:focus-visible]:outline-offset-2 has-[.card-link:focus-visible]:outline-secondary"
+                            >
+                                {/* Photo */}
+                                <div className="relative h-60 w-full overflow-hidden">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        src={idea.image}
+                                        alt={idea.alt}
+                                        loading="lazy"
+                                        decoding="async"
+                                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-linear-to-t from-primary/75 via-primary/20 to-transparent" />
+                                    <span
+                                        className={cn(
+                                            "absolute bottom-4 left-4 rounded px-3 py-1 font-sans text-label-md",
+                                            idea.featured
+                                                ? "bg-secondary text-on-secondary"
+                                                : "bg-surface-container-lowest/90 text-primary"
+                                        )}
+                                    >
+                                        {idea.duration}
+                                    </span>
+                                </div>
+
+                                {/* Body */}
+                                <div className="flex flex-1 flex-col justify-between gap-6 p-6">
+                                    <div>
+                                        <h3 className="mb-2 font-display text-headline-sm text-primary transition-colors group-hover:text-secondary">
+                                            <Link
+                                                href={`/trip-ideas/${idea.slug}`}
+                                                className="card-link after:absolute after:inset-0 focus-visible:outline-none"
+                                            >
+                                                {idea.title}
+                                            </Link>
+                                        </h3>
+                                        <p className="mb-5 line-clamp-4 font-sans text-body-md text-on-surface-variant">
+                                            {idea.description}
+                                        </p>
+
+                                        <ol className="flex flex-col gap-3 rounded-lg border border-surface-container-highest bg-surface-container-low p-4">
+                                            {shown.map((day, i) => (
+                                                <li
+                                                    key={day.title}
+                                                    className="flex items-start gap-2.5"
+                                                >
+                                                    <span className="mt-0.5 w-6 shrink-0 font-sans text-label-md font-semibold text-secondary">
+                                                        D{i + 1}
+                                                    </span>
+                                                    <span className="font-sans text-body-md text-on-surface">
+                                                        {day.title}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                            {hidden > 0 && (
+                                                <li className="pl-[34px] font-sans text-label-md text-on-surface-variant">
+                                                    {t("moreDays", { count: hidden })}
+                                                </li>
+                                            )}
+                                        </ol>
+                                    </div>
+
+                                    <div className="flex items-center justify-between gap-3 border-t border-surface-container-high pt-4">
+                                        <span className="whitespace-nowrap font-sans text-caption font-semibold uppercase tracking-wider text-on-surface-variant">
+                                            {t("experiencesCount", {
+                                                count: idea.highlights.length,
+                                            })}
+                                        </span>
+                                        {/* Raised above the card-wide link so it stays separately clickable */}
+                                        <ButtonLink
+                                            href={`/plan-my-trip?idea=${idea.slug}`}
+                                            size="sm"
+                                            className="relative z-10"
+                                        >
+                                            {t("customize")}
+                                            <ArrowRight className="size-3.5" />
+                                        </ButtonLink>
+                                    </div>
+                                </div>
+                            </article>
+                        );
+                    })}
+                </div>
             </div>
         </section>
-    );
-}
-
-function TripCard({
-    idea,
-    height,
-    showHighlights,
-}: {
-    idea: TripIdea;
-    height: string;
-    showHighlights?: boolean;
-}) {
-    const t = useTranslations("popularTripIdeas");
-
-    return (
-        <Link
-            href={`/trip-ideas/${idea.slug}`}
-            className="group relative flex items-end overflow-hidden no-underline"
-            style={{ height, borderRadius: "10px" }}
-        >
-            <img
-                src={idea.image}
-                alt={idea.alt}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-            />
-            <div
-                className="absolute inset-0"
-                style={{
-                    background:
-                        "linear-gradient(to top, rgba(10,20,14,0.82) 0%, rgba(10,20,14,0.35) 45%, rgba(10,20,14,0.05) 70%)",
-                }}
-            />
-
-            <div className="relative z-[1] flex flex-col gap-2 px-6 py-6 md:px-8 md:py-7">
-                <span
-                    className="uppercase tracking-[0.18em] font-semibold"
-                    style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--color-gold-mid)" }}
-                >
-                    {idea.duration}
-                </span>
-
-                <h3
-                    style={{
-                        fontFamily: "var(--font-display)",
-                        fontSize: showHighlights ? "var(--text-2xl)" : "var(--text-xl)",
-                        fontWeight: 700,
-                        letterSpacing: "-0.02em",
-                        lineHeight: 1.1,
-                        color: "#ffffff",
-                    }}
-                >
-                    {idea.title}
-                </h3>
-
-                <p
-                    className="leading-[1.6]"
-                    style={{
-                        fontFamily: "var(--font-sans)",
-                        fontSize: "var(--text-sm)",
-                        color: "rgba(255,255,255,0.78)",
-                        maxWidth: "48ch",
-                    }}
-                >
-                    {idea.description}
-                </p>
-
-                {showHighlights && (
-                    <span
-                        className="tracking-[0.04em]"
-                        style={{ fontFamily: "var(--font-sans)", fontSize: "0.72rem", color: "rgba(255,255,255,0.55)" }}
-                    >
-                        {idea.highlights.join(" · ")}
-                    </span>
-                )}
-
-                <span
-                    className="uppercase tracking-[0.16em] font-semibold mt-2"
-                    style={{
-                        fontFamily: "var(--font-sans)",
-                        fontSize: "var(--text-xs)",
-                        color: "#ffffff",
-                        borderBottom: "1px solid rgba(255,255,255,0.5)",
-                        paddingBottom: "0.2rem",
-                        width: "fit-content",
-                    }}
-                >
-                    {t("viewItinerary")}
-                </span>
-            </div>
-        </Link>
     );
 }
