@@ -148,7 +148,6 @@
     --shadow-bar: 0 -1px 12px rgba(24, 61, 50, 0.03);
 
     /* ---- Animations (keyframes below) ---- */
-    --animate-marquee: marquee 32s linear infinite;
     --animate-fade-up: fadeUp 0.7s ease both;
     --animate-hero-zoom: heroZoom 10s ease-out forwards;
 
@@ -253,18 +252,7 @@
     }
 }
 
-/* ============================================================
-   KEYFRAMES
-   ============================================================ */
-@keyframes marquee {
-    from {
-        transform: translateX(0);
-    }
 
-    to {
-        transform: translateX(-50%);
-    }
-}
 
 @keyframes fadeUp {
     from {
@@ -300,5 +288,52 @@
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* ---------- Print: a finished itinerary ---------- */
+@media print {
+    @page {
+        size: A4;
+        margin: 14mm;
+    }
+
+    /* Keep the green markers and badges: browsers drop backgrounds by default. */
+    :root {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    html,
+    body {
+        background: #fff;
+    }
+
+    /* Paper is flat. */
+    *,
+    *::before,
+    *::after {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* One day per page, after the first. */
+    [role="tabpanel"]+[role="tabpanel"] {
+        break-before: page;
+    }
+
+    /* Never split a stop card or a day summary across two pages. */
+    [role="tabpanel"] article,
+    [role="tabpanel"] header,
+    [role="tabpanel"] dl>div {
+        break-inside: avoid;
+    }
+
+    /* A heading stays with the content that follows it. */
+    h1,
+    h2,
+    h3 {
+        break-after: avoid;
     }
 }

@@ -1,171 +1,163 @@
-"use client";
-
+import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
+import GuideCard from "@/components/guides/GuideCard";
 import { Link } from "@/i18n/navigation";
 import { GUIDES } from "@/lib/data/guides";
+import { cn } from "@/lib/utils";
 
-export default function GuidesGrid() {
+/* Guide categories are free text in the data, so a topic id is just the
+   category lowercased and hyphenated ("Getting There" -> "getting-there"). */
+const topicId = (category: string) =>
+    category
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+
+/* One entry per distinct category, in data order. */
+const TOPICS = GUIDES.reduce<{ id: string; label: string }[]>((list, guide) => {
+    const id = topicId(guide.category);
+    if (!list.some((topic) => topic.id === id)) {
+        list.push({ id, label: guide.category });
+    }
+    return list;
+}, []);
+
+const pill =
+    "inline-block shrink-0 whitespace-nowrap rounded-full px-4 py-2 font-sans text-label-md transition-all";
+const pillOn = "bg-primary text-on-primary shadow-sm";
+const pillOff =
+    "bg-surface-container-low text-on-surface hover:bg-surface-container";
+
+/* The filter lives in the URL (?topic=...), so a filtered view is shareable
+   and the back button works. An unknown topic is ignored (shows everything). */
+export default function GuidesGrid({ topic }: { topic?: string }) {
     const t = useTranslations("guidesPage");
 
+    const active = TOPICS.find((entry) => entry.id === topic);
+    const visible = active
+        ? GUIDES.filter((guide) => topicId(guide.category) === active.id)
+        : GUIDES;
+
+    /* The cover story shows on the unfiltered view only. */
+    const lead = active ? undefined : GUIDES[0];
+    const rest = active ? visible : GUIDES.slice(1);
+
     return (
-        <section
-            className="py-[clamp(5rem,9vw,8.5rem)]"
-            style={{ background: "var(--color-base)" }}
-        >
-            <div className="w-full max-w-[1380px] mx-auto px-[clamp(1.25rem,4vw,3.5rem)]">
-
-                {/* ── Header ── */}
-                <div className="flex flex-col items-center text-center mb-16">
-
-                    <span
-                        className="uppercase tracking-[0.22em] font-semibold text-[var(--color-gold)] mb-4"
-                        style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)" }}
-                    >
-                        {t("eyebrow")}
-                    </span>
-
-                    <div
-                        className="mb-6"
-                        style={{ width: "32px", height: "2px", background: "var(--color-gold-mid)" }}
-                    />
-
-                    <h1
-                        className="mb-4"
-                        style={{
-                            fontFamily: "var(--font-display)",
-                            fontSize: "var(--text-3xl)",
-                            fontWeight: 700,
-                            letterSpacing: "-0.03em",
-                            lineHeight: 1.05,
-                            maxWidth: "560px",
-                            color: "var(--color-ink)",
-                        }}
-                    >
-                        {t("heading")}
-                    </h1>
-
-                    <p
-                        className="leading-[1.75]"
-                        style={{
-                            fontFamily: "var(--font-sans)",
-                            fontSize: "var(--text-sm)",
-                            color: "var(--color-muted)",
-                            maxWidth: "480px",
-                        }}
-                    >
-                        {t("subheading")}
-                    </p>
-
+        <section className="w-full bg-surface px-margin pb-20 md:px-margin-md lg:px-margin-lg">
+            <div className="mx-auto max-w-7xl">
+                {/* Sticky topic bar, sits just under the fixed header */}
+                <div
+                    role="navigation"
+                    aria-label={t("filtersLabel")}
+                    className="sticky top-24 z-40 mb-8 rounded-2xl bg-surface/90 px-3 py-3 shadow-sm backdrop-blur-md sm:px-4"
+                >
+                    <ul className="flex items-center gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                        <li className="shrink-0">
+                            <Link
+                                href="/guides"
+                                scroll={false}
+                                aria-current={!active ? "true" : undefined}
+                                className={cn(pill, !active ? pillOn : pillOff)}
+                            >
+                                {t("allTopics", { count: GUIDES.length })}
+                            </Link>
+                        </li>
+                        {TOPICS.map(({ id, label }) => {
+                            const isActive = active?.id === id;
+                            return (
+                                <li key={id} className="shrink-0">
+                                    <Link
+                                        href={`/guides?topic=${id}`}
+                                        scroll={false}
+                                        aria-current={isActive ? "true" : undefined}
+                                        className={cn(pill, isActive ? pillOn : pillOff)}
+                                    >
+                                        {label}
+                                    </Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
                 </div>
 
-                {/* ── Guide list ── */}
-                <div className="flex flex-col gap-8 w-full max-w-[1000px] mx-auto">
-                    {GUIDES.map((guide, i) => (
-                        <Link
-                            key={guide.slug}
-                            href={`/guides/${guide.slug}`}
-                            className="group relative flex flex-col sm:flex-row overflow-visible no-underline"
-                            style={{
-                                background: "var(--color-surface)",
-                                border: "1px solid rgba(14,28,18,0.09)",
-                                borderRadius: "10px",
-                                boxShadow: "0 2px 10px rgba(14,28,18,0.06)",
-                                transition: "transform 0.28s ease, box-shadow 0.28s ease",
-                            }}
-                            onMouseEnter={e => {
-                                const el = e.currentTarget as HTMLElement;
-                                el.style.transform = "translateY(-4px)";
-                                el.style.boxShadow = "0 24px 60px rgba(14,28,18,0.12)";
-                            }}
-                            onMouseLeave={e => {
-                                const el = e.currentTarget as HTMLElement;
-                                el.style.transform = "translateY(0)";
-                                el.style.boxShadow = "0 2px 10px rgba(14,28,18,0.06)";
-                            }}
-                        >
-                            <span
-                                className="hidden md:block absolute select-none"
-                                style={{
-                                    top: "-1.1rem",
-                                    left: "-1rem",
-                                    fontFamily: "var(--font-display)",
-                                    fontSize: "5rem",
-                                    fontWeight: 700,
-                                    lineHeight: 1,
-                                    color: "var(--color-gold-mid)",
-                                    opacity: 0.5,
-                                    zIndex: 0,
-                                }}
-                            >
-                                {String(i + 1).padStart(2, "0")}
-                            </span>
-
-                            <div
-                                className="relative overflow-hidden flex-shrink-0"
-                                style={{
-                                    width: "100%",
-                                    maxWidth: "380px",
-                                    aspectRatio: "16/11",
-                                    borderRadius: "10px 10px 0 0",
-                                }}
-                            >
+                {/* Cover story */}
+                {lead ? (
+                    <article className="group relative mb-14 overflow-hidden rounded-3xl bg-surface-container-lowest shadow-md has-[.card-link:focus-visible]:outline-2 has-[.card-link:focus-visible]:outline-offset-2 has-[.card-link:focus-visible]:outline-secondary">
+                        <div className="grid grid-cols-1 items-stretch lg:min-h-[440px] lg:grid-cols-12">
+                            {/* Photo */}
+                            <div className="relative min-h-[300px] overflow-hidden lg:col-span-7 lg:min-h-full">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
-                                    src={guide.image}
-                                    alt={guide.alt}
-                                    loading={i < 2 ? "eager" : "lazy"}
-                                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                                    src={lead.image}
+                                    alt={lead.alt}
+                                    loading="eager"
+                                    className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                                 />
+                                <div className="absolute inset-0 bg-linear-to-t from-primary/70 via-primary/10 to-transparent lg:bg-linear-to-r lg:from-transparent lg:via-transparent lg:to-surface-container-lowest" />
                             </div>
 
-                            <div className="relative z-[1] flex flex-col justify-center flex-1 px-7 py-7 md:px-9 gap-3">
-                                <span
-                                    className="uppercase tracking-[0.14em]"
-                                    style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: 700, color: "var(--color-gold)" }}
-                                >
-                                    {guide.category}
-                                </span>
+                            {/* Story */}
+                            <div className="flex flex-col justify-between gap-8 p-6 sm:p-8 lg:col-span-5 lg:p-10">
+                                <div className="flex flex-col gap-4">
+                                    <div className="flex flex-wrap items-center gap-2 font-sans">
+                                        <span className="rounded bg-secondary/10 px-2.5 py-0.5 text-label-md font-semibold uppercase tracking-wider text-secondary">
+                                            {lead.category}
+                                        </span>
+                                        <span className="text-outline" aria-hidden="true">
+                                            &bull;
+                                        </span>
+                                        <span className="text-caption text-on-surface-variant">
+                                            {lead.readTime}
+                                        </span>
+                                    </div>
 
-                                <h2
-                                    style={{
-                                        fontFamily: "var(--font-display)",
-                                        fontSize: "var(--text-2xl)",
-                                        fontWeight: 700,
-                                        letterSpacing: "-0.02em",
-                                        lineHeight: 1.15,
-                                        color: "var(--color-ink)",
-                                    }}
-                                >
-                                    {guide.title}
-                                </h2>
+                                    <h2 className="font-display text-headline-md leading-snug tracking-tight text-primary">
+                                        <Link
+                                            href={`/guides/${lead.slug}`}
+                                            className="card-link after:absolute after:inset-0 focus-visible:outline-none"
+                                        >
+                                            {lead.title}
+                                        </Link>
+                                    </h2>
 
-                                <p
-                                    className="leading-[1.7]"
-                                    style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--color-muted)", maxWidth: "52ch" }}
-                                >
-                                    {guide.excerpt}
-                                </p>
-
-                                <div className="flex items-center gap-3 mt-2">
-                                    <span
-                                        className="uppercase tracking-[0.1em]"
-                                        style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--color-muted)" }}
-                                    >
-                                        {guide.readTime}
-                                    </span>
-                                    <span style={{ color: "var(--color-border)" }}>&#8226;</span>
-                                    <span
-                                        className="uppercase tracking-[0.16em] font-semibold flex items-center gap-1.5"
-                                        style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", color: "var(--color-gold)" }}
-                                    >
-                                        {t("readGuide")}
-                                        <span style={{ fontSize: "0.85rem", lineHeight: 1 }}>&#8594;</span>
-                                    </span>
+                                    <p className="font-display text-body-lg text-on-surface-variant">
+                                        {lead.excerpt}
+                                    </p>
                                 </div>
+
+                                {/* Looks like a button; the title link above covers the whole card */}
+                                <span className="inline-flex w-fit items-center gap-2 rounded-xl bg-primary px-5 py-2.5 font-sans text-label-md text-on-primary shadow-sm transition-colors group-hover:bg-secondary">
+                                    {t("readGuide")}
+                                    <ArrowRight className="size-[17px]" aria-hidden="true" />
+                                </span>
                             </div>
-                        </Link>
-                    ))}
+                        </div>
+                    </article>
+                ) : null}
+
+                {/* Section title */}
+                <div className="flex flex-col justify-between gap-2 pb-6 sm:flex-row sm:items-baseline">
+                    <div>
+                        <span className="mb-1 block font-sans text-label-md font-semibold uppercase tracking-wider text-secondary">
+                            {t("moreEyebrow")}
+                        </span>
+                        <h2 className="font-display text-headline-md text-primary">
+                            {active ? active.label : t("moreHeading")}
+                        </h2>
+                    </div>
+                    <p className="font-sans text-body-md text-on-surface-variant">
+                        {t("showing", { count: rest.length })}
+                    </p>
                 </div>
 
+                {/* Grid */}
+                <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {rest.map((guide) => (
+                        <li key={guide.slug} className="grid">
+                            <GuideCard guide={guide} />
+                        </li>
+                    ))}
+                </ul>
             </div>
         </section>
     );

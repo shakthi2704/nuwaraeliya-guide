@@ -151,4 +151,54 @@ export const EXPERIENCES: Experience[] = [
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB0MU-h2VY9l085-d4SG8Fg5skUfIJCfen3uTH3hv6kFDDPd8UPxscL8FO04Vu6u5MCD3JqovnqhC-uhuxP7A9_926ES54qvQ9DjQJv_guKaz6Uos7Yi0NzQjI1lZPkQsnZcBQGXwsR7fuIBPdWOudNy5-66uIhI5oh6le5raTqD4bPZdsQ7YCrzvPktiimH995bIJ5pWsUnVAFCTJOGvDjqR8UOTIWSa7T6opxTTYTdUrgNQrZV4kE", // placeholder from Stitch, replace with a real photo
         alt: "Tea service with scones in a colonial-style salon with lawn views",
     },
+    {
+        slug: "single-tree-hill-sunrise",
+        category: "Photography",
+        categories: ["photography", "nature"], // verify
+        title: "Single Tree Hill Sunrise Summit Hike",
+        description:
+            "A trail through temple grounds and tea paths above the racecourse, ending in a 360-degree dawn panorama over the Nuwara Eliya basin.", // verify
+        body:
+            "Single Tree Hill sits above the racecourse. The trail winds through the grounds of a Buddhist temple and along tea paths to a summit with a 360-degree view over the whole Nuwara Eliya basin.\n\nIt is a sunrise hike. Plan on a start around 5:30 AM and about three hours in total.", // verify, expand with your own notes
+        duration: "3 hours", // verify
+        elevationM: 2100, // verify
+        area: "Above the Racecourse",
+        effort: "moderate", // verify
+        bestFor: "Photographers",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCwrlivHh3UCCXfv6_k-oivhwjqC0wDQG4kfWbJxMEdlYhkwjXsI2FpsHZtw2RYxteG8OghDsbKTyNrXqTrhyxEPt_qw0IfbCxPeGX5gnJ4KRKAL46hdOUo4_AwOqQPt1givlmc1Pi5jwr7iQ2VDadBkbHzHkCuHXtGoHmbouGTnKJZFCEAVi76f1b6cQptNsMki0PY3LdU2yfkp28dMj2zeGtYXxb1Ob8FtqSJm-jCHYrIx4YzKEBX", // placeholder from Stitch, replace with a real photo
+        alt: "Sunrise over the misty Nuwara Eliya basin seen from a hilltop with cypress trees",
+    },
+    {
+        slug: "lovers-leap-waterfall",
+        category: "Nature",
+        categories: ["nature"], // verify
+        title: "Lovers Leap Waterfall & Forest Trail",
+        description:
+            "A peaceful two-hour walk from local tea villages to a 30 m cascade tied to Kandyan royal folklore.", // verify 30 m
+        body:
+            "Lovers Leap is reached on foot from the tea villages around Hawa Eliya. The walk takes about two hours and ends at a 30 metre cascade, which is tied to old Kandyan royal folklore.\n\nThe trail is of moderate difficulty and runs mostly through tea country and forest.", // verify, expand with your own notes
+        duration: "2 hours",
+        elevationM: 1930, // verify
+        area: "Hawa Eliya",
+        effort: "moderate", // verify
+        bestFor: "Nature lovers",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAM-i9e7wm1r_5oCvYx4Ofr21IL1FTXlMbde4yDFuIAgDCB-CEF2KFNRpvJ2AnWxwJu9KpNba2jzasH-YCd4g9gA94b0kqHcbjenK4M1b8iMTH9ahK8F4ywQUCaRf8j1pVACurFl4O9mutuOv3L_uvAUfC0MD_Mn0IwGHI1dat5S2IfuyvK2HPo2a4tjc7Z_f6wado-wuqbEG9wURJv2HVTJrVd0--_f7094nQhSFXs77vXqZPQ9JyQ", // placeholder from Stitch, replace with a real photo
+        alt: "A waterfall dropping over dark rocks into a pool, surrounded by highland forest",
+    },
+    {
+        slug: "victoria-park-birding",
+        category: "Wildlife",
+        categories: ["wildlife", "nature"], // verify
+        title: "Victoria Park Avian Walk & Flower Gardens",
+        description:
+            "A haven for winter migrant birds such as the Kashmir Flycatcher, within 27 acres of well-kept mountain gardens.", // verify 27 acres, Kashmir Flycatcher
+        body:
+            "Victoria Park is in the middle of town and is well known with birdwatchers for winter migrants such as the Kashmir Flycatcher. The grounds cover about 27 acres of carefully kept mountain flowers and trees.\n\nPaths are paved and easy, so it works well as a short, gentle stop of about an hour and a half.", // verify, expand with your own notes
+        duration: "1.5 hours",
+        area: "Town centre",
+        effort: "easy",
+        bestFor: "Birdwatchers and solo travelers",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAaYEWtuBdOpdmF1iqBH6D_SFXCMfQRhFIpnogEmL7yr6bwsuLDtGB5zlal1Yj_Cx54eZgghTEiuSEEBfFN64kudw_pPMpXacYk749q3RZ_5XZPDmVyhs0D-bJNYHB3t78GpWIxGF67-U5k-bCLP7YVF3x5OO2X28lXzEFPeatKsWkZlbv8-L1n6ybXZSvowUWKLDX3ze5n8hceg2m5ZOIbEHTo9Nmm8YWKuIxkGZDsnsacY_XguysR", // placeholder from Stitch, replace with a real photo
+        alt: "Tall cedar trees and flowerbeds in a misty park, with a small bird on a mossy branch",
+    },
 ];

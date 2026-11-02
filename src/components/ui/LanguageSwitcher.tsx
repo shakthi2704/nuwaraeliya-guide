@@ -29,7 +29,7 @@ export default function LanguageSwitcher() {
                             className={[
                                 "no-underline tracking-[0.15em] uppercase transition-colors duration-200",
                                 isActive
-                                    ? "text-[var(--color-gold-mid)]"
+                                    ? "text-secondary-container"
                                     : "text-white/45 hover:text-white/80",
                             ].join(" ")}
                             style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: 500 }}

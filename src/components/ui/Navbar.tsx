@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Leaf, Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
+import SavedTripDrawer, {
+    type SavedTripItem,
+} from "@/components/saved/SavedTripDrawer";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { ButtonLink } from "./Button";
@@ -17,7 +20,11 @@ const NAV_LINKS = [
 /* Pages whose hero photo runs underneath the header. */
 const TRANSPARENT_PAGES = ["/"];
 
-export default function Navbar() {
+export default function Navbar({
+    savedItems,
+}: {
+    savedItems: SavedTripItem[];
+}) {
     const t = useTranslations("navigation");
     const pathname = usePathname();
     const [menuOpen, setMenuOpen] = useState(false);
@@ -139,6 +146,11 @@ export default function Navbar() {
                     </nav>
 
                     <div className="flex items-center gap-3">
+                        <SavedTripDrawer
+                            items={savedItems}
+                            triggerClassName={tone.toggle}
+                        />
+
                         <ButtonLink
                             href="/plan-my-trip"
                             size="md"

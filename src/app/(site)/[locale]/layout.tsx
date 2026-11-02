@@ -6,9 +6,6 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 
-import Navbar from "@/components/ui/Navbar";
-import Footer from "@/components/ui/Footer";
-
 /* Editorial serif for headlines. The opsz axis lets the browser pick
    the right optical size automatically, as in the Stitch design. */
 const newsreader = Newsreader({
@@ -90,9 +87,7 @@ export default async function RootLayout({
     >
       <body>
         <NextIntlClientProvider messages={messages}>
-          <Navbar />
-          <main className="pt-20">{children}</main>
-          <Footer />
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>
